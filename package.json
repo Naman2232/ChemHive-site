@@ -1,0 +1,20 @@
+{
+  "name": "chemhive-chemical-supply",
+  "version": "1.0.0",
+  "description": "Corporate dummy website structure for ChemHive Global Chemical Supply Co.",
+  "scripts": {
+    "start": "npx serve -l 3000 .",
+    "dev": "npx serve -l 3000 .",
+    "serve-py": "python -m http.server 3000"
+  },
+  "keywords": [
+    "chemical-supply",
+    "b2b",
+    "chemicals",
+    "sds",
+    "coa",
+    "rfq"
+  ],
+  "author": "ChemHive Engineering",
+  "license": "MIT"
+}

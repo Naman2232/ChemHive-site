@@ -1,0 +1,1109 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ChemHive | Global Chemical Supply, Bulk Raw Materials & Specialty Reagents</title>
+  <meta name="description" content="ChemHive is a premier global chemical supplier delivering industrial bulk chemicals, pharmaceutical raw materials, solvents, acids, and specialty compounds.">
+  <link rel="icon" type="image/svg+xml" href="assets/favicon.svg">
+
+  <!-- Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            chem: {
+              navy: '#0b1120',
+              slate: '#1e293b',
+              cyan: '#0284c7',
+              cyanLight: '#38bdf8',
+              emerald: '#10b981',
+              emeraldDark: '#059669',
+            }
+          },
+          fontFamily: {
+            sans: ['"Plus Jakarta Sans"', 'system-ui', 'sans-serif'],
+            mono: ['"JetBrains Mono"', 'monospace'],
+          }
+        }
+      }
+    }
+  </script>
+
+  <!-- Font Awesome Icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body class="bg-slate-50 text-slate-800 flex flex-col min-h-screen">
+
+  <!-- Top Utility Bar -->
+  <div class="bg-chem-navy text-slate-300 text-xs py-2 px-4 border-b border-slate-800">
+    <div class="max-w-7xl mx-auto flex flex-wrap items-center justify-between gap-3">
+      <div class="flex items-center gap-6">
+        <span class="flex items-center gap-1.5 text-emerald-400 font-medium">
+          <span class="w-2 h-2 rounded-full bg-emerald-400 pulse-emerald inline-block"></span>
+          All Hubs Operational (EU, NA, APAC)
+        </span>
+        <span class="hidden md:inline-flex items-center gap-2 text-slate-400">
+          <i class="fa-solid fa-award text-cyan-400"></i> ISO 9001:2015 &amp; REACH Compliant
+        </span>
+      </div>
+      <div class="flex items-center gap-4">
+        <a href="tel:+18005552436" class="hover:text-cyan-300 transition flex items-center gap-1.5">
+          <i class="fa-solid fa-phone text-cyan-400"></i>
+          <span class="hidden sm:inline">24/7 Logistics &amp; Orders:</span> <strong>+1 (800) 555-CHEM</strong>
+        </a>
+        <span class="text-slate-700">|</span>
+        <a href="compliance.html" class="hover:text-cyan-300 transition flex items-center gap-1">
+          <i class="fa-solid fa-file-shield text-emerald-400"></i> SDS Library
+        </a>
+      </div>
+    </div>
+  </div>
+
+  <!-- Main Navigation Bar -->
+  <header id="main-nav" class="sticky top-0 z-40 bg-white border-b border-slate-200 transition-all duration-200">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="flex items-center justify-between h-20">
+        
+        <!-- Logo -->
+        <a href="index.html" class="flex items-center gap-3 group">
+          <img src="assets/logo.svg" alt="ChemHive Logo" class="h-10 sm:h-12 w-auto transition transform group-hover:scale-[1.02]">
+        </a>
+
+        <!-- Desktop Navigation Links -->
+        <nav class="hidden lg:flex items-center space-x-7 text-sm font-semibold text-slate-600">
+          <a href="index.html" class="nav-link hover:text-cyan-600 transition">Home</a>
+          <a href="products.html" class="nav-link hover:text-cyan-600 transition flex items-center gap-1">
+            Chemical Catalog <span class="bg-cyan-100 text-cyan-800 text-[10px] font-bold px-1.5 py-0.5 rounded-full">5000+</span>
+          </a>
+          <a href="services.html" class="nav-link hover:text-cyan-600 transition">Services &amp; Supply Chain</a>
+          <a href="compliance.html" class="nav-link hover:text-cyan-600 transition">Quality &amp; SDS</a>
+          <a href="about.html" class="nav-link hover:text-cyan-600 transition">About Us</a>
+          <a href="contact.html" class="nav-link hover:text-cyan-600 transition">Contact</a>
+        </nav>
+
+        <!-- Right Action Items -->
+        <div class="flex items-center gap-3">
+          <!-- Search Trigger (Desktop) -->
+          <form id="header-search-form" class="hidden md:flex items-center relative">
+            <input type="text" id="header-search-input" placeholder="Search CAS#, Chemical..." 
+                   class="pl-9 pr-3 py-1.5 text-xs bg-slate-100 border border-slate-200 rounded-full focus:outline-none focus:border-cyan-500 focus:bg-white w-48 transition-all duration-200 focus:w-60">
+            <i class="fa-solid fa-magnifying-glass absolute left-3 text-slate-400 text-xs"></i>
+          </form>
+
+          <!-- Quote Basket Drawer Trigger -->
+          <button onclick="window.ChemHiveCart.openDrawer()" 
+                  class="relative p-2.5 rounded-xl bg-slate-100 hover:bg-slate-200 text-slate-700 transition" 
+                  title="View Quote Basket">
+            <i class="fa-solid fa-clipboard-list text-base"></i>
+            <span class="cart-count-badge hidden absolute -top-1 -right-1 w-5 h-5 bg-cyan-600 text-white rounded-full text-[10px] font-bold items-center justify-center shadow">
+              0
+            </span>
+          </button>
+
+          <!-- CTA Request Quote Button -->
+          <a href="contact.html#rfq-form" 
+             class="hidden sm:inline-flex items-center gap-2 bg-gradient-to-r from-cyan-600 to-sky-600 hover:from-cyan-700 hover:to-sky-700 text-white text-xs font-bold px-4 py-2.5 rounded-xl shadow-md hover:shadow-lg transition">
+            <i class="fa-solid fa-file-invoice"></i> Request Quote
+          </a>
+
+          <!-- Mobile Hamburger Button -->
+          <button id="mobile-menu-btn" class="lg:hidden p-2 rounded-lg text-slate-600 hover:bg-slate-100">
+            <i class="fa-solid fa-bars text-xl"></i>
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <!-- Mobile Nav Drawer -->
+    <div id="mobile-menu" class="hidden lg:hidden border-t border-slate-200 bg-white px-4 pt-3 pb-6 space-y-3">
+      <form action="products.html" method="get" class="relative mb-3">
+        <input type="text" name="search" placeholder="Search chemical, CAS#..." 
+               class="w-full pl-9 pr-4 py-2 bg-slate-50 border border-slate-200 rounded-xl text-sm focus:outline-none focus:border-cyan-500">
+        <i class="fa-solid fa-magnifying-glass absolute left-3 top-3 text-slate-400 text-sm"></i>
+      </form>
+      <a href="index.html" class="block py-2 text-sm font-semibold text-slate-800">Home</a>
+      <a href="products.html" class="block py-2 text-sm font-semibold text-slate-800">Chemical Catalog</a>
+      <a href="services.html" class="block py-2 text-sm font-semibold text-slate-800">Services &amp; Logistics</a>
+      <a href="compliance.html" class="block py-2 text-sm font-semibold text-slate-800">Quality, SDS &amp; Compliance</a>
+      <a href="about.html" class="block py-2 text-sm font-semibold text-slate-800">About ChemHive</a>
+      <a href="contact.html" class="block py-2 text-sm font-semibold text-slate-800">Contact &amp; RFQ</a>
+      <div class="pt-3 border-t border-slate-100 flex gap-2">
+        <a href="contact.html#rfq-form" class="w-full text-center py-2.5 bg-cyan-600 text-white rounded-xl font-bold text-sm">
+          Submit RFQ Inquiry
+        </a>
+      </div>
+    </div>
+  </header>
+
+  <!-- HERO SECTION -->
+  <section class="relative bg-hex-grid text-white overflow-hidden py-16 lg:py-24">
+    <!-- Subtle gradient orbs -->
+    <div class="absolute -top-32 -left-32 w-96 h-96 bg-cyan-600/20 rounded-full blur-3xl pointer-events-none"></div>
+    <div class="absolute top-1/2 -right-32 w-96 h-96 bg-emerald-600/20 rounded-full blur-3xl pointer-events-none"></div>
+
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+      <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+        
+        <!-- Left Hero Content -->
+        <div class="lg:col-span-7 space-y-6">
+          <div class="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-slate-800/80 border border-slate-700 text-xs font-semibold text-cyan-300">
+            <span class="w-2 h-2 rounded-full bg-cyan-400"></span>
+            GLOBAL B2B CHEMICAL SUPPLY CHAIN PARTNER
+          </div>
+
+          <h1 class="text-4xl sm:text-5xl lg:text-6xl font-black tracking-tight leading-[1.15]">
+            Reliable Chemical Supply. <br>
+            <span class="bg-clip-text text-transparent bg-gradient-to-r from-cyan-400 via-sky-300 to-emerald-400">
+              Uncompromising Purity.
+            </span>
+          </h1>
+
+          <p class="text-base sm:text-lg text-slate-300 max-w-2xl leading-relaxed">
+            From bulk industrial solvents and mineral acids to ultra-pure USP pharmaceutical reagents. We provide end-to-end global logistics, lot-specific COA verification, and guaranteed compliance.
+          </p>
+
+          <!-- Interactive Quick Catalog Search Bar -->
+          <div class="bg-white/10 backdrop-blur-md p-2.5 sm:p-3 rounded-2xl border border-white/20 shadow-2xl max-w-xl">
+            <form action="products.html" method="get" class="flex flex-col sm:flex-row gap-2">
+              <div class="relative flex-1">
+                <i class="fa-solid fa-magnifying-glass absolute left-3.5 top-3.5 text-slate-400 text-sm"></i>
+                <input type="text" name="search" placeholder="Enter Chemical Name, CAS# (e.g. 67-63-0), or Formula..." 
+                       class="w-full pl-10 pr-4 py-3 rounded-xl bg-white text-slate-900 placeholder-slate-400 text-sm font-medium focus:outline-none focus:ring-2 focus:ring-cyan-400">
+              </div>
+              <button type="submit" 
+                      class="px-6 py-3 bg-gradient-to-r from-cyan-500 to-emerald-500 hover:from-cyan-600 hover:to-emerald-600 text-white font-bold text-sm rounded-xl transition shadow flex items-center justify-center gap-2 whitespace-nowrap">
+                Search Catalog <i class="fa-solid fa-arrow-right"></i>
+              </button>
+            </form>
+            <div class="flex items-center gap-2 mt-2 px-2 text-[11px] text-slate-300 overflow-x-auto whitespace-nowrap">
+              <span class="text-slate-400 font-bold uppercase">Popular:</span>
+              <a href="products.html?search=Isopropyl" class="hover:text-cyan-300 underline decoration-cyan-500/50">Isopropyl Alcohol</a>
+              <span>•</span>
+              <a href="products.html?search=Caustic" class="hover:text-cyan-300 underline decoration-cyan-500/50">Caustic Soda</a>
+              <span>•</span>
+              <a href="products.html?search=Sulfuric" class="hover:text-cyan-300 underline decoration-cyan-500/50">Sulfuric Acid</a>
+              <span>•</span>
+              <a href="products.html?search=Titanium" class="hover:text-cyan-300 underline decoration-cyan-500/50">Titanium Dioxide</a>
+            </div>
+          </div>
+
+          <!-- Trust Proof Badges -->
+          <div class="pt-2 flex flex-wrap items-center gap-6 text-xs text-slate-400">
+            <span class="flex items-center gap-2"><i class="fa-solid fa-shield-halved text-emerald-400 text-base"></i> ISO 9001:2015</span>
+            <span class="flex items-center gap-2"><i class="fa-solid fa-certificate text-cyan-400 text-base"></i> REACH &amp; GHS Verified</span>
+            <span class="flex items-center gap-2"><i class="fa-solid fa-truck-fast text-sky-400 text-base"></i> Hazmat Classes 3, 5, 8, 9</span>
+          </div>
+        </div>
+
+        <!-- Right Quick RFQ Snapshot Card -->
+        <div class="lg:col-span-5">
+          <div class="bg-slate-900/90 backdrop-blur-xl border border-slate-700/80 rounded-3xl p-6 sm:p-8 shadow-2xl relative">
+            <div class="absolute -top-3 right-6 bg-gradient-to-r from-cyan-500 to-emerald-500 text-white text-[10px] uppercase tracking-wider font-extrabold px-3 py-1 rounded-full shadow">
+              Rapid Response (2h SLA)
+            </div>
+
+            <h3 class="text-xl font-bold text-white mb-2 flex items-center gap-2">
+              <i class="fa-solid fa-bolt text-amber-400"></i> Fast Bulk RFQ Inquiry
+            </h3>
+            <p class="text-xs text-slate-400 mb-6">
+              Need immediate pricing for full container loads, ISO tanks, or custom blends? Submit your specs below.
+            </p>
+
+            <form action="contact.html" method="get" class="space-y-4 text-xs">
+              <div>
+                <label class="block font-semibold text-slate-300 mb-1">Chemical Name / CAS Number</label>
+                <input type="text" required placeholder="e.g. Isopropyl Alcohol (67-63-0)" 
+                       class="w-full px-3.5 py-2.5 rounded-xl bg-slate-800 border border-slate-700 text-white placeholder-slate-500 focus:outline-none focus:border-cyan-400">
+              </div>
+
+              <div class="grid grid-cols-2 gap-3">
+                <div>
+                  <label class="block font-semibold text-slate-300 mb-1">Required Grade</label>
+                  <select class="w-full px-3 py-2.5 rounded-xl bg-slate-800 border border-slate-700 text-white focus:outline-none focus:border-cyan-400">
+                    <option>Technical / Industrial</option>
+                    <option>USP / Pharma Grade</option>
+                    <option>ACS Reagent</option>
+                    <option>Food Grade (FCC)</option>
+                  </select>
+                </div>
+                <div>
+                  <label class="block font-semibold text-slate-300 mb-1">Volume Needed</label>
+                  <input type="text" placeholder="e.g. 20 Metric Tons / 40 Drums" 
+                         class="w-full px-3.5 py-2.5 rounded-xl bg-slate-800 border border-slate-700 text-white placeholder-slate-500 focus:outline-none focus:border-cyan-400">
+                </div>
+              </div>
+
+              <div>
+                <label class="block font-semibold text-slate-300 mb-1">Corporate Email Address</label>
+                <input type="email" required placeholder="procurement@company.com" 
+                       class="w-full px-3.5 py-2.5 rounded-xl bg-slate-800 border border-slate-700 text-white placeholder-slate-500 focus:outline-none focus:border-cyan-400">
+              </div>
+
+              <a href="contact.html#rfq-form" 
+                 class="w-full block text-center py-3 bg-cyan-600 hover:bg-cyan-500 text-white font-bold rounded-xl shadow-lg transition tracking-wide text-xs">
+                Request Formal Quotation &amp; COA
+              </a>
+
+              <div class="text-[11px] text-center text-slate-500 pt-1">
+                <i class="fa-solid fa-lock text-slate-500 mr-1"></i> Strictly confidential B2B pricing. Non-disclosure protected.
+              </div>
+            </form>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- STATS COUNTER STRIP -->
+  <section class="bg-white border-b border-slate-200 py-8">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="grid grid-cols-2 md:grid-cols-4 gap-6 text-center">
+        <div class="p-4 rounded-2xl bg-slate-50 border border-slate-100">
+          <div class="text-3xl sm:text-4xl font-extrabold text-cyan-600 font-mono">5,000+</div>
+          <div class="text-xs font-semibold text-slate-600 mt-1 uppercase tracking-wider">Cataloged Compounds</div>
+        </div>
+        <div class="p-4 rounded-2xl bg-slate-50 border border-slate-100">
+          <div class="text-3xl sm:text-4xl font-extrabold text-emerald-600 font-mono">48+</div>
+          <div class="text-xs font-semibold text-slate-600 mt-1 uppercase tracking-wider">Export Nations</div>
+        </div>
+        <div class="p-4 rounded-2xl bg-slate-50 border border-slate-100">
+          <div class="text-3xl sm:text-4xl font-extrabold text-sky-600 font-mono">99.8%</div>
+          <div class="text-xs font-semibold text-slate-600 mt-1 uppercase tracking-wider">On-Time Logistics</div>
+        </div>
+        <div class="p-4 rounded-2xl bg-slate-50 border border-slate-100">
+          <div class="text-3xl sm:text-4xl font-extrabold text-slate-800 font-mono">100%</div>
+          <div class="text-xs font-semibold text-slate-600 mt-1 uppercase tracking-wider">Batch COA Verified</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CORE PRODUCT CATEGORIES & QUICK EXPLORER -->
+  <section class="py-16 bg-slate-50">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="flex flex-col md:flex-row md:items-end justify-between mb-10 gap-4">
+        <div>
+          <span class="text-cyan-600 font-bold text-xs uppercase tracking-widest">PRODUCT PORTFOLIO</span>
+          <h2 class="text-3xl font-black text-slate-900 mt-1">Primary Chemical Classifications</h2>
+          <p class="text-sm text-slate-600 mt-2 max-w-xl">
+            Sourced directly from ISO-certified synthesis plants and global refinery terminals with certified specifications.
+          </p>
+        </div>
+        <a href="products.html" class="inline-flex items-center gap-2 text-cyan-600 hover:text-cyan-700 font-bold text-sm">
+          Browse All 5,000+ Chemicals <i class="fa-solid fa-arrow-right"></i>
+        </a>
+      </div>
+
+      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+        
+        <!-- Category 1 -->
+        <a href="products.html?category=Industrial%20Solvents" class="group bg-white p-6 rounded-2xl border border-slate-200 hover:border-cyan-400 hover:shadow-xl transition-all duration-300 flex flex-col justify-between">
+          <div>
+            <div class="w-12 h-12 rounded-xl bg-cyan-50 text-cyan-600 flex items-center justify-center text-xl mb-4 group-hover:bg-cyan-600 group-hover:text-white transition">
+              <i class="fa-solid fa-vial"></i>
+            </div>
+            <h3 class="text-lg font-bold text-slate-900 group-hover:text-cyan-600 transition">Industrial Solvents</h3>
+            <p class="text-xs text-slate-600 mt-2 leading-relaxed">
+              High-purity alcohols, ketones, aromatics, and aliphatic hydrocarbons for coatings, degreasing, and pharmaceutical extraction.
+            </p>
+            <div class="mt-4 flex flex-wrap gap-1.5 text-[11px] text-slate-500 font-mono">
+              <span class="bg-slate-100 px-2 py-0.5 rounded">IPA (67-63-0)</span>
+              <span class="bg-slate-100 px-2 py-0.5 rounded">Acetone</span>
+              <span class="bg-slate-100 px-2 py-0.5 rounded">Methanol</span>
+            </div>
+          </div>
+          <div class="mt-6 pt-4 border-t border-slate-100 flex items-center justify-between text-xs font-semibold text-cyan-600">
+            <span>Explore Solvents</span>
+            <i class="fa-solid fa-arrow-right transform group-hover:translate-x-1 transition"></i>
+          </div>
+        </a>
+
+        <!-- Category 2 -->
+        <a href="products.html?category=Acids%20%26%20Alkalis" class="group bg-white p-6 rounded-2xl border border-slate-200 hover:border-cyan-400 hover:shadow-xl transition-all duration-300 flex flex-col justify-between">
+          <div>
+            <div class="w-12 h-12 rounded-xl bg-amber-50 text-amber-600 flex items-center justify-center text-xl mb-4 group-hover:bg-amber-600 group-hover:text-white transition">
+              <i class="fa-solid fa-flask"></i>
+            </div>
+            <h3 class="text-lg font-bold text-slate-900 group-hover:text-amber-600 transition">Acids &amp; Alkalis</h3>
+            <p class="text-xs text-slate-600 mt-2 leading-relaxed">
+              Inorganic and organic bulk mineral acids, caustic bases, and neutralizing agents for metallurgy, synthesis, and etching.
+            </p>
+            <div class="mt-4 flex flex-wrap gap-1.5 text-[11px] text-slate-500 font-mono">
+              <span class="bg-slate-100 px-2 py-0.5 rounded">Caustic Soda 99%</span>
+              <span class="bg-slate-100 px-2 py-0.5 rounded">Sulfuric Acid 98%</span>
+              <span class="bg-slate-100 px-2 py-0.5 rounded">HCl 33%</span>
+            </div>
+          </div>
+          <div class="mt-6 pt-4 border-t border-slate-100 flex items-center justify-between text-xs font-semibold text-amber-600">
+            <span>Explore Acids &amp; Alkalis</span>
+            <i class="fa-solid fa-arrow-right transform group-hover:translate-x-1 transition"></i>
+          </div>
+        </a>
+
+        <!-- Category 3 -->
+        <a href="products.html?category=Food%20%26%20Pharma%20Ingredients" class="group bg-white p-6 rounded-2xl border border-slate-200 hover:border-cyan-400 hover:shadow-xl transition-all duration-300 flex flex-col justify-between">
+          <div>
+            <div class="w-12 h-12 rounded-xl bg-emerald-50 text-emerald-600 flex items-center justify-center text-xl mb-4 group-hover:bg-emerald-600 group-hover:text-white transition">
+              <i class="fa-solid fa-pills"></i>
+            </div>
+            <h3 class="text-lg font-bold text-slate-900 group-hover:text-emerald-600 transition">Food &amp; Pharma Ingredients</h3>
+            <p class="text-xs text-slate-600 mt-2 leading-relaxed">
+              USP/BP grade excipients, humectants, acidulants, and FCC food additives with certified cGMP lot documentation.
+            </p>
+            <div class="mt-4 flex flex-wrap gap-1.5 text-[11px] text-slate-500 font-mono">
+              <span class="bg-slate-100 px-2 py-0.5 rounded">Glycerin USP 99.7%</span>
+              <span class="bg-slate-100 px-2 py-0.5 rounded">Citric Acid Anhydrous</span>
+              <span class="bg-slate-100 px-2 py-0.5 rounded">Propylene Glycol</span>
+            </div>
+          </div>
+          <div class="mt-6 pt-4 border-t border-slate-100 flex items-center justify-between text-xs font-semibold text-emerald-600">
+            <span>Explore Pharma &amp; Food</span>
+            <i class="fa-solid fa-arrow-right transform group-hover:translate-x-1 transition"></i>
+          </div>
+        </a>
+
+        <!-- Category 4 -->
+        <a href="products.html?category=Water%20Treatment%20%26%20Mining" class="group bg-white p-6 rounded-2xl border border-slate-200 hover:border-cyan-400 hover:shadow-xl transition-all duration-300 flex flex-col justify-between">
+          <div>
+            <div class="w-12 h-12 rounded-xl bg-sky-50 text-sky-600 flex items-center justify-center text-xl mb-4 group-hover:bg-sky-600 group-hover:text-white transition">
+              <i class="fa-solid fa-water"></i>
+            </div>
+            <h3 class="text-lg font-bold text-slate-900 group-hover:text-sky-600 transition">Water Treatment &amp; Mining</h3>
+            <p class="text-xs text-slate-600 mt-2 leading-relaxed">
+              Coagulants, high-molecular polyacrylamide flocculants, biocides, oxidizers, and pH balancers for municipal and industrial plants.
+            </p>
+            <div class="mt-4 flex flex-wrap gap-1.5 text-[11px] text-slate-500 font-mono">
+              <span class="bg-slate-100 px-2 py-0.5 rounded">Polyacrylamide (PAM)</span>
+              <span class="bg-slate-100 px-2 py-0.5 rounded">H2O2 50%</span>
+              <span class="bg-slate-100 px-2 py-0.5 rounded">BKC 50%</span>
+            </div>
+          </div>
+          <div class="mt-6 pt-4 border-t border-slate-100 flex items-center justify-between text-xs font-semibold text-sky-600">
+            <span>Explore Water Chemicals</span>
+            <i class="fa-solid fa-arrow-right transform group-hover:translate-x-1 transition"></i>
+          </div>
+        </a>
+
+        <!-- Category 5 -->
+        <a href="products.html?category=Polymers%20%26%20Additives" class="group bg-white p-6 rounded-2xl border border-slate-200 hover:border-cyan-400 hover:shadow-xl transition-all duration-300 flex flex-col justify-between">
+          <div>
+            <div class="w-12 h-12 rounded-xl bg-indigo-50 text-indigo-600 flex items-center justify-center text-xl mb-4 group-hover:bg-indigo-600 group-hover:text-white transition">
+              <i class="fa-solid fa-cubes-stacked"></i>
+            </div>
+            <h3 class="text-lg font-bold text-slate-900 group-hover:text-indigo-600 transition">Polymers &amp; Additives</h3>
+            <p class="text-xs text-slate-600 mt-2 leading-relaxed">
+              Optical pigments, titanium dioxide, plasticizers, polyethylene glycols (PEG), and specialty stabilizers for manufacturing.
+            </p>
+            <div class="mt-4 flex flex-wrap gap-1.5 text-[11px] text-slate-500 font-mono">
+              <span class="bg-slate-100 px-2 py-0.5 rounded">Titanium Dioxide Rutile</span>
+              <span class="bg-slate-100 px-2 py-0.5 rounded">PEG 400</span>
+              <span class="bg-slate-100 px-2 py-0.5 rounded">VAM Monomer</span>
+            </div>
+          </div>
+          <div class="mt-6 pt-4 border-t border-slate-100 flex items-center justify-between text-xs font-semibold text-indigo-600">
+            <span>Explore Polymers</span>
+            <i class="fa-solid fa-arrow-right transform group-hover:translate-x-1 transition"></i>
+          </div>
+        </a>
+
+        <!-- Category 6 -->
+        <a href="products.html?category=Fine%20%26%20Specialty%20Chemicals" class="group bg-white p-6 rounded-2xl border border-slate-200 hover:border-cyan-400 hover:shadow-xl transition-all duration-300 flex flex-col justify-between">
+          <div>
+            <div class="w-12 h-12 rounded-xl bg-teal-50 text-teal-600 flex items-center justify-center text-xl mb-4 group-hover:bg-teal-600 group-hover:text-white transition">
+              <i class="fa-solid fa-atom"></i>
+            </div>
+            <h3 class="text-lg font-bold text-slate-900 group-hover:text-teal-600 transition">Fine &amp; Specialty Reagents</h3>
+            <p class="text-xs text-slate-600 mt-2 leading-relaxed">
+              Custom synthesis intermediates, biocides, phase transfer catalysts, and lab-grade analytical standard reagents.
+            </p>
+            <div class="mt-4 flex flex-wrap gap-1.5 text-[11px] text-slate-500 font-mono">
+              <span class="bg-slate-100 px-2 py-0.5 rounded">BKC Quat 80%</span>
+              <span class="bg-slate-100 px-2 py-0.5 rounded">Custom Synthesis</span>
+              <span class="bg-slate-100 px-2 py-0.5 rounded">Catalysts</span>
+            </div>
+          </div>
+          <div class="mt-6 pt-4 border-t border-slate-100 flex items-center justify-between text-xs font-semibold text-teal-600">
+            <span>Explore Specialty</span>
+            <i class="fa-solid fa-arrow-right transform group-hover:translate-x-1 transition"></i>
+          </div>
+        </a>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- FEATURED CHEMICALS SHOWCASE -->
+  <section class="py-16 bg-white border-y border-slate-200">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="flex flex-col sm:flex-row sm:items-end justify-between mb-8 gap-4">
+        <div>
+          <span class="text-cyan-600 font-bold text-xs uppercase tracking-widest">IN-STOCK INVENTORY</span>
+          <h2 class="text-3xl font-black text-slate-900 mt-1">High-Volume Essential Chemicals</h2>
+          <p class="text-xs sm:text-sm text-slate-600 mt-1">Ready for rapid dispatch in drums, IBC totes, or bulk ISO tankers.</p>
+        </div>
+        <div class="flex gap-2">
+          <a href="products.html" class="px-4 py-2 bg-slate-100 hover:bg-slate-200 text-slate-800 text-xs font-bold rounded-xl transition">
+            View Complete Catalog (16+)
+          </a>
+        </div>
+      </div>
+
+      <!-- Grid of 4 featured products -->
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+        
+        <!-- Chem 1 -->
+        <div class="bg-slate-50 rounded-2xl border border-slate-200 p-5 flex flex-col justify-between hover:shadow-lg transition">
+          <div>
+            <div class="flex items-center justify-between mb-2">
+              <span class="text-[10px] font-mono bg-cyan-100 text-cyan-800 px-2 py-0.5 rounded font-bold">CAS: 67-63-0</span>
+              <span class="text-[10px] bg-amber-100 text-amber-800 px-1.5 py-0.5 rounded font-semibold">Hazmat 3</span>
+            </div>
+            <h3 class="font-bold text-slate-900 text-base">Isopropyl Alcohol (IPA)</h3>
+            <p class="text-xs text-slate-500 font-mono mb-2">Formula: C3H8O | 99.8% min</p>
+            <p class="text-xs text-slate-600 mb-4 line-clamp-2">High purity solvent for pharma disinfectants, electronics cleaning, and resins.</p>
+          </div>
+          <div class="space-y-2 pt-3 border-t border-slate-200">
+            <div class="text-[11px] text-slate-500 flex justify-between">
+              <span>Packaging:</span> <strong class="text-slate-700">200L Drum / IBC</strong>
+            </div>
+            <div class="grid grid-cols-2 gap-2">
+              <button onclick="window.ChemHiveCompliance.downloadMockSDS('67-63-0', 'Isopropyl Alcohol')" 
+                      class="px-2 py-1.5 bg-white border border-slate-200 text-slate-700 rounded-lg text-xs font-semibold hover:bg-slate-100">
+                SDS
+              </button>
+              <button onclick="window.ChemHiveCart.add('CH-0101')" 
+                      class="px-2 py-1.5 bg-cyan-600 text-white rounded-lg text-xs font-bold hover:bg-cyan-700">
+                + Quote
+              </button>
+            </div>
+          </div>
+        </div>
+
+        <!-- Chem 2 -->
+        <div class="bg-slate-50 rounded-2xl border border-slate-200 p-5 flex flex-col justify-between hover:shadow-lg transition">
+          <div>
+            <div class="flex items-center justify-between mb-2">
+              <span class="text-[10px] font-mono bg-cyan-100 text-cyan-800 px-2 py-0.5 rounded font-bold">CAS: 1310-73-2</span>
+              <span class="text-[10px] bg-amber-100 text-amber-800 px-1.5 py-0.5 rounded font-semibold">Hazmat 8</span>
+            </div>
+            <h3 class="font-bold text-slate-900 text-base">Caustic Soda (NaOH)</h3>
+            <p class="text-xs text-slate-500 font-mono mb-2">Formula: NaOH | 99.0% min</p>
+            <p class="text-xs text-slate-600 mb-4 line-clamp-2">High-purity micro pearls &amp; flakes for paper pulp, water treatment, and soaps.</p>
+          </div>
+          <div class="space-y-2 pt-3 border-t border-slate-200">
+            <div class="text-[11px] text-slate-500 flex justify-between">
+              <span>Packaging:</span> <strong class="text-slate-700">25kg Bags / Tanker</strong>
+            </div>
+            <div class="grid grid-cols-2 gap-2">
+              <button onclick="window.ChemHiveCompliance.downloadMockSDS('1310-73-2', 'Sodium Hydroxide')" 
+                      class="px-2 py-1.5 bg-white border border-slate-200 text-slate-700 rounded-lg text-xs font-semibold hover:bg-slate-100">
+                SDS
+              </button>
+              <button onclick="window.ChemHiveCart.add('CH-0102')" 
+                      class="px-2 py-1.5 bg-cyan-600 text-white rounded-lg text-xs font-bold hover:bg-cyan-700">
+                + Quote
+              </button>
+            </div>
+          </div>
+        </div>
+
+        <!-- Chem 3 -->
+        <div class="bg-slate-50 rounded-2xl border border-slate-200 p-5 flex flex-col justify-between hover:shadow-lg transition">
+          <div>
+            <div class="flex items-center justify-between mb-2">
+              <span class="text-[10px] font-mono bg-cyan-100 text-cyan-800 px-2 py-0.5 rounded font-bold">CAS: 13463-67-7</span>
+              <span class="text-[10px] bg-emerald-100 text-emerald-800 px-1.5 py-0.5 rounded font-semibold">Standard</span>
+            </div>
+            <h3 class="font-bold text-slate-900 text-base">Titanium Dioxide (TiO2)</h3>
+            <p class="text-xs text-slate-500 font-mono mb-2">Formula: TiO2 | Rutile 94.5%+</p>
+            <p class="text-xs text-slate-600 mb-4 line-clamp-2">Premium optical white pigment for architectural coatings, plastics, and inks.</p>
+          </div>
+          <div class="space-y-2 pt-3 border-t border-slate-200">
+            <div class="text-[11px] text-slate-500 flex justify-between">
+              <span>Packaging:</span> <strong class="text-slate-700">25kg Bags / 1 MT</strong>
+            </div>
+            <div class="grid grid-cols-2 gap-2">
+              <button onclick="window.ChemHiveCompliance.downloadMockSDS('13463-67-7', 'Titanium Dioxide')" 
+                      class="px-2 py-1.5 bg-white border border-slate-200 text-slate-700 rounded-lg text-xs font-semibold hover:bg-slate-100">
+                SDS
+              </button>
+              <button onclick="window.ChemHiveCart.add('CH-0104')" 
+                      class="px-2 py-1.5 bg-cyan-600 text-white rounded-lg text-xs font-bold hover:bg-cyan-700">
+                + Quote
+              </button>
+            </div>
+          </div>
+        </div>
+
+        <!-- Chem 4 -->
+        <div class="bg-slate-50 rounded-2xl border border-slate-200 p-5 flex flex-col justify-between hover:shadow-lg transition">
+          <div>
+            <div class="flex items-center justify-between mb-2">
+              <span class="text-[10px] font-mono bg-cyan-100 text-cyan-800 px-2 py-0.5 rounded font-bold">CAS: 56-81-5</span>
+              <span class="text-[10px] bg-emerald-100 text-emerald-800 px-1.5 py-0.5 rounded font-semibold">USP / Food</span>
+            </div>
+            <h3 class="font-bold text-slate-900 text-base">Glycerin USP (99.7%)</h3>
+            <p class="text-xs text-slate-500 font-mono mb-2">Formula: C3H8O3 | Plant Origin</p>
+            <p class="text-xs text-slate-600 mb-4 line-clamp-2">Pharmaceutical-grade vegetable humectant for cosmetics, syrups, and formulations.</p>
+          </div>
+          <div class="space-y-2 pt-3 border-t border-slate-200">
+            <div class="text-[11px] text-slate-500 flex justify-between">
+              <span>Packaging:</span> <strong class="text-slate-700">250kg Drum / IBC</strong>
+            </div>
+            <div class="grid grid-cols-2 gap-2">
+              <button onclick="window.ChemHiveCompliance.downloadMockSDS('56-81-5', 'Glycerin')" 
+                      class="px-2 py-1.5 bg-white border border-slate-200 text-slate-700 rounded-lg text-xs font-semibold hover:bg-slate-100">
+                SDS
+              </button>
+              <button onclick="window.ChemHiveCart.add('CH-0107')" 
+                      class="px-2 py-1.5 bg-cyan-600 text-white rounded-lg text-xs font-bold hover:bg-cyan-700">
+                + Quote
+              </button>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- INDUSTRIES WE SERVE -->
+  <section class="py-16 bg-slate-50">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="text-center max-w-3xl mx-auto mb-12">
+        <span class="text-cyan-600 font-bold text-xs uppercase tracking-widest">GLOBAL INDUSTRIAL SOLUTIONS</span>
+        <h2 class="text-3xl font-black text-slate-900 mt-1">Custom Formulations for Specialized Sectors</h2>
+        <p class="text-sm text-slate-600 mt-2">
+          Every industry has distinct regulatory thresholds, purity standards, and container specifications. We engineer our chemical supply pipelines around your sector's exact compliance framework.
+        </p>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+        
+        <div class="bg-white p-6 rounded-2xl border border-slate-200 shadow-sm hover:border-cyan-400 transition">
+          <div class="text-cyan-600 text-2xl mb-3"><i class="fa-solid fa-capsules"></i></div>
+          <h3 class="font-bold text-slate-900 text-base mb-1">Pharmaceuticals &amp; Biotech</h3>
+          <p class="text-xs text-slate-600 leading-relaxed mb-3">
+            USP, EP, and JP monograph compliant ingredients with rigorous endotoxin and heavy metal batch certificates.
+          </p>
+          <span class="text-[11px] font-semibold text-cyan-600">Key: IPA USP, Citric Acid USP, Glycerin 99.7%</span>
+        </div>
+
+        <div class="bg-white p-6 rounded-2xl border border-slate-200 shadow-sm hover:border-cyan-400 transition">
+          <div class="text-sky-600 text-2xl mb-3"><i class="fa-solid fa-paint-roller"></i></div>
+          <h3 class="font-bold text-slate-900 text-base mb-1">Paints, Coatings &amp; Resins</h3>
+          <p class="text-xs text-slate-600 leading-relaxed mb-3">
+            High opacity pigments, fast and slow evaporating solvents, coalescents, and monomer intermediates.
+          </p>
+          <span class="text-[11px] font-semibold text-sky-600">Key: TiO2 Rutile, Acetone, Glacial Acetic Acid</span>
+        </div>
+
+        <div class="bg-white p-6 rounded-2xl border border-slate-200 shadow-sm hover:border-cyan-400 transition">
+          <div class="text-emerald-600 text-2xl mb-3"><i class="fa-solid fa-water"></i></div>
+          <h3 class="font-bold text-slate-900 text-base mb-1">Water &amp; Wastewater Treatment</h3>
+          <p class="text-xs text-slate-600 leading-relaxed mb-3">
+            Anionic and cationic flocculants, de-chlorinators, industrial alkalis, and advanced effluent oxidizers.
+          </p>
+          <span class="text-[11px] font-semibold text-emerald-600">Key: Polyacrylamide (PAM), Caustic Soda, H2O2</span>
+        </div>
+
+        <div class="bg-white p-6 rounded-2xl border border-slate-200 shadow-sm hover:border-cyan-400 transition">
+          <div class="text-amber-600 text-2xl mb-3"><i class="fa-solid fa-wheat-awn"></i></div>
+          <h3 class="font-bold text-slate-900 text-base mb-1">Agrochemicals &amp; Fertilizers</h3>
+          <p class="text-xs text-slate-600 leading-relaxed mb-3">
+            Purified phosphoric acids, formulation surfactants, nitrogen intermediates, and micro-nutrient carriers.
+          </p>
+          <span class="text-[11px] font-semibold text-amber-600">Key: Phosphoric Acid 85%, Sulfuric Acid 98%</span>
+        </div>
+
+        <div class="bg-white p-6 rounded-2xl border border-slate-200 shadow-sm hover:border-cyan-400 transition">
+          <div class="text-rose-600 text-2xl mb-3"><i class="fa-solid fa-utensils"></i></div>
+          <h3 class="font-bold text-slate-900 text-base mb-1">Food &amp; Beverage Processing</h3>
+          <p class="text-xs text-slate-600 leading-relaxed mb-3">
+            FCC and kosher/halal certified acidulants, preservatives, food processing aids, and CIP sanitation chemicals.
+          </p>
+          <span class="text-[11px] font-semibold text-rose-600">Key: Citric Acid Anhydrous, Propylene Glycol FCC</span>
+        </div>
+
+        <div class="bg-white p-6 rounded-2xl border border-slate-200 shadow-sm hover:border-cyan-400 transition">
+          <div class="text-indigo-600 text-2xl mb-3"><i class="fa-solid fa-industry"></i></div>
+          <h3 class="font-bold text-slate-900 text-base mb-1">Heavy Petrochem &amp; Metallurgy</h3>
+          <p class="text-xs text-slate-600 leading-relaxed mb-3">
+            Bulk acids for steel pickling, solvent extraction, catalyst support, and refinery neutralizers.
+          </p>
+          <span class="text-[11px] font-semibold text-indigo-600">Key: HCl 33%, H2SO4, Methanol, Caustic Pearls</span>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- VALUE PROPOSITION / LOGISTICS & CAPABILITIES -->
+  <section class="py-16 bg-chem-navy text-white relative overflow-hidden">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+      <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+        
+        <div class="lg:col-span-6 space-y-6">
+          <span class="text-emerald-400 font-bold text-xs uppercase tracking-widest">WORLD-CLASS INFRASTRUCTURE</span>
+          <h2 class="text-3xl sm:text-4xl font-black tracking-tight leading-tight">
+            Secure Supply Chains. <br>
+            <span class="text-cyan-400">Zero Factory Downtime.</span>
+          </h2>
+          <p class="text-slate-300 text-sm leading-relaxed">
+            In chemical manufacturing, delayed deliveries or contaminated raw materials halt production lines. ChemHive operates dedicated bulk storage terminals, automated re-packaging cleanrooms, and ADR/DOT Hazmat fleets.
+          </p>
+
+          <div class="space-y-4 pt-2">
+            <div class="flex items-start gap-4">
+              <div class="w-10 h-10 rounded-xl bg-cyan-500/20 text-cyan-400 flex items-center justify-center shrink-0">
+                <i class="fa-solid fa-cubes text-lg"></i>
+              </div>
+              <div>
+                <h4 class="font-bold text-sm text-white">Custom Blending &amp; Private Dilution</h4>
+                <p class="text-xs text-slate-400 mt-0.5">Automated liquid and dry powder blending according to proprietary customer specifications.</p>
+              </div>
+            </div>
+
+            <div class="flex items-start gap-4">
+              <div class="w-10 h-10 rounded-xl bg-emerald-500/20 text-emerald-400 flex items-center justify-center shrink-0">
+                <i class="fa-solid fa-truck-ramp-box text-lg"></i>
+              </div>
+              <div>
+                <h4 class="font-bold text-sm text-white">Hazardous Materials (Hazmat) Certified Transport</h4>
+                <p class="text-xs text-slate-400 mt-0.5">Full ADR/IMDG compliance for Class 3, 5.1, 6.1, 8, and 9 hazardous cargo worldwide.</p>
+              </div>
+            </div>
+
+            <div class="flex items-start gap-4">
+              <div class="w-10 h-10 rounded-xl bg-sky-500/20 text-sky-400 flex items-center justify-center shrink-0">
+                <i class="fa-solid fa-temperature-arrow-down text-lg"></i>
+              </div>
+              <div>
+                <h4 class="font-bold text-sm text-white">Temperature-Controlled &amp; Inert Gas Storage</h4>
+                <p class="text-xs text-slate-400 mt-0.5">Cold storage facilities and nitrogen blanketing for oxidation-sensitive specialty reagents.</p>
+              </div>
+            </div>
+          </div>
+
+          <div class="pt-4">
+            <a href="services.html" class="inline-flex items-center gap-2 px-6 py-3 bg-cyan-600 hover:bg-cyan-500 text-white text-xs font-bold rounded-xl transition shadow">
+              Discover Our Services &amp; Packaging Formats <i class="fa-solid fa-arrow-right"></i>
+            </a>
+          </div>
+        </div>
+
+        <!-- Packaging Graphic / Showcase Grid -->
+        <div class="lg:col-span-6 bg-slate-800/80 border border-slate-700 rounded-3xl p-6 sm:p-8">
+          <h3 class="text-base font-bold text-white mb-4 flex items-center justify-between">
+            <span>Standard Industrial Packaging Formats</span>
+            <span class="text-xs text-cyan-400 font-mono">UN Certified</span>
+          </h3>
+
+          <div class="grid grid-cols-2 gap-4 text-xs">
+            <div class="p-4 bg-slate-900/80 rounded-2xl border border-slate-700/60">
+              <div class="text-cyan-400 text-2xl mb-2"><i class="fa-solid fa-oil-well"></i></div>
+              <div class="font-bold text-white">200L / 55 Gal Drums</div>
+              <div class="text-slate-400 text-[11px] mt-1">Steel Tight-Head &amp; HDPE Plastic with UN Hazmat approval.</div>
+            </div>
+
+            <div class="p-4 bg-slate-900/80 rounded-2xl border border-slate-700/60">
+              <div class="text-emerald-400 text-2xl mb-2"><i class="fa-solid fa-box-open"></i></div>
+              <div class="font-bold text-white">1,000L Composite IBCs</div>
+              <div class="text-slate-400 text-[11px] mt-1">Heavy-duty galvanized steel cage totes with bottom discharge valves.</div>
+            </div>
+
+            <div class="p-4 bg-slate-900/80 rounded-2xl border border-slate-700/60">
+              <div class="text-amber-400 text-2xl mb-2"><i class="fa-solid fa-sack-dollar"></i></div>
+              <div class="font-bold text-white">25kg Kraft &amp; Big Bags</div>
+              <div class="text-slate-400 text-[11px] mt-1">Multi-ply paper bags with PE inner moisture barrier or 1MT FIBC sacks.</div>
+            </div>
+
+            <div class="p-4 bg-slate-900/80 rounded-2xl border border-slate-700/60">
+              <div class="text-sky-400 text-2xl mb-2"><i class="fa-solid fa-train"></i></div>
+              <div class="font-bold text-white">Bulk ISO Tankers</div>
+              <div class="text-slate-400 text-[11px] mt-1">20-24 Metric Ton ISO tank containers and dedicated road tankers.</div>
+            </div>
+          </div>
+
+          <div class="mt-6 p-4 rounded-xl bg-cyan-950/60 border border-cyan-800/60 text-xs text-cyan-200 flex items-center justify-between">
+            <span>Need custom labeling or private branding for export?</span>
+            <a href="contact.html" class="font-bold underline text-white hover:text-cyan-300">Inquire Here</a>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- QUALITY, COMPLIANCE & SDS QUICK PORTAL -->
+  <section class="py-16 bg-white">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="bg-gradient-to-br from-slate-900 via-slate-800 to-chem-navy rounded-3xl p-8 sm:p-12 text-white relative overflow-hidden shadow-2xl">
+        <div class="relative z-10 grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
+          <div class="lg:col-span-7 space-y-4">
+            <span class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-emerald-500/20 text-emerald-300 text-xs font-semibold">
+              <i class="fa-solid fa-certificate"></i> REGULATORY REPOSITORY
+            </span>
+            <h2 class="text-2xl sm:text-3xl font-black">
+              Instant Safety Data Sheet (SDS) &amp; COA Verification
+            </h2>
+            <p class="text-xs sm:text-sm text-slate-300 leading-relaxed max-w-xl">
+              Compliance is in our DNA. Access up-to-date GHS Rev 9 Safety Data Sheets, REACH dossiers, and batch-specific Certificates of Analysis anytime.
+            </p>
+            <div class="flex flex-wrap gap-4 pt-2">
+              <a href="compliance.html" class="px-5 py-2.5 bg-cyan-500 hover:bg-cyan-400 text-slate-950 text-xs font-bold rounded-xl transition shadow">
+                Open SDS Library &amp; COA Lookup
+              </a>
+              <a href="compliance.html#standards" class="px-5 py-2.5 bg-slate-800 hover:bg-slate-700 text-white text-xs font-semibold rounded-xl border border-slate-700 transition">
+                View ISO &amp; REACH Certifications
+              </a>
+            </div>
+          </div>
+
+          <div class="lg:col-span-5 bg-white/10 backdrop-blur-md p-6 rounded-2xl border border-white/20">
+            <h4 class="text-sm font-bold text-white mb-2 flex items-center gap-2">
+              <i class="fa-solid fa-magnifying-glass text-cyan-400"></i> Quick SDS Document Finder
+            </h4>
+            <p class="text-[11px] text-slate-300 mb-4">Search by CAS Number to instantly preview Safety Data Sheet:</p>
+            <div class="flex gap-2">
+              <input type="text" id="home-sds-cas-input" placeholder="e.g. 67-63-0 or 1310-73-2" 
+                     class="flex-1 px-3 py-2 text-xs rounded-lg bg-white text-slate-900 placeholder-slate-400 font-mono focus:outline-none">
+              <button onclick="
+                const val = document.getElementById('home-sds-cas-input').value.trim();
+                if(val) { window.ChemHiveCompliance.downloadMockSDS(val, 'Chemical CAS: ' + val); }
+                else { window.ChemHiveCart.showToast('Please type a CAS Number first', 'warning'); }
+              " class="px-4 py-2 bg-emerald-500 hover:bg-emerald-400 text-slate-950 text-xs font-bold rounded-lg transition whitespace-nowrap">
+                Fetch SDS
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CALL TO ACTION BANNER -->
+  <section class="py-16 bg-slate-100 border-t border-slate-200">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+      <span class="text-cyan-600 font-bold text-xs uppercase tracking-widest">START A PARTNERSHIP</span>
+      <h2 class="text-3xl sm:text-4xl font-black text-slate-900 mt-2 mb-4">
+        Ready to Secure Your Chemical Raw Material Pipeline?
+      </h2>
+      <p class="text-sm text-slate-600 max-w-2xl mx-auto mb-8">
+        Speak directly with our technical sales chemical engineers. We offer volume contracts, spot market dispatch, and custom synthesis consultations.
+      </p>
+      <div class="flex flex-wrap items-center justify-center gap-4">
+        <a href="contact.html#rfq-form" 
+           class="px-8 py-3.5 bg-cyan-600 hover:bg-cyan-700 text-white font-bold text-sm rounded-xl shadow-lg hover:shadow-cyan-500/25 transition">
+          Submit RFQ Inquiry
+        </a>
+        <a href="products.html" 
+           class="px-8 py-3.5 bg-white hover:bg-slate-50 text-slate-800 font-bold text-sm rounded-xl border border-slate-300 shadow-sm transition">
+          Browse Complete Catalog
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer class="bg-chem-navy text-slate-400 text-xs pt-16 pb-12 border-t border-slate-800 mt-auto">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-10 mb-12">
+        
+        <!-- Brand Info -->
+        <div class="lg:col-span-2 space-y-4">
+          <img src="assets/logo-white.svg" alt="ChemHive Logo" class="h-10 w-auto">
+          <p class="text-slate-400 leading-relaxed text-xs max-w-sm">
+            ChemHive is a certified chemical distribution and supply chain powerhouse delivering essential industrial chemicals, pharmaceutical excipients, acids, and laboratory reagents worldwide.
+          </p>
+          <div class="text-slate-400 space-y-1 text-xs">
+            <p><i class="fa-solid fa-location-dot text-cyan-400 mr-2"></i> Global HQ: 1400 Bayport Industrial Blvd, Houston, TX 77017</p>
+            <p><i class="fa-solid fa-phone text-cyan-400 mr-2"></i> +1 (800) 555-CHEM / +1 (713) 555-0199</p>
+            <p><i class="fa-solid fa-envelope text-cyan-400 mr-2"></i> orders@chemhive-supply.example.com</p>
+          </div>
+        </div>
+
+        <!-- Quick Links -->
+        <div>
+          <h4 class="text-white font-bold text-sm mb-3 uppercase tracking-wider">Catalog &amp; Products</h4>
+          <ul class="space-y-2 text-xs">
+            <li><a href="products.html?category=Industrial%20Solvents" class="hover:text-cyan-300 transition">Industrial Solvents</a></li>
+            <li><a href="products.html?category=Acids%20%26%20Alkalis" class="hover:text-cyan-300 transition">Acids &amp; Alkalis</a></li>
+            <li><a href="products.html?category=Food%20%26%20Pharma%20Ingredients" class="hover:text-cyan-300 transition">USP Pharma &amp; Food Grade</a></li>
+            <li><a href="products.html?category=Water%20Treatment%20%26%20Mining" class="hover:text-cyan-300 transition">Water Treatment Chemicals</a></li>
+            <li><a href="products.html?category=Polymers%20%26%20Additives" class="hover:text-cyan-300 transition">Polymers &amp; Additives</a></li>
+            <li><a href="products.html" class="hover:text-cyan-300 transition font-bold text-cyan-400">View All Chemicals &rarr;</a></li>
+          </ul>
+        </div>
+
+        <!-- Services & Solutions -->
+        <div>
+          <h4 class="text-white font-bold text-sm mb-3 uppercase tracking-wider">Capabilities</h4>
+          <ul class="space-y-2 text-xs">
+            <li><a href="services.html" class="hover:text-cyan-300 transition">Custom Blending &amp; Formulation</a></li>
+            <li><a href="services.html" class="hover:text-cyan-300 transition">Hazardous Cargo (Hazmat) Logistics</a></li>
+            <li><a href="services.html" class="hover:text-cyan-300 transition">Bulk Terminal Warehousing</a></li>
+            <li><a href="services.html" class="hover:text-cyan-300 transition">Contract Private Repackaging</a></li>
+            <li><a href="compliance.html" class="hover:text-cyan-300 transition">Safety Data Sheets (SDS)</a></li>
+            <li><a href="compliance.html" class="hover:text-cyan-300 transition">Certificates of Analysis (COA)</a></li>
+          </ul>
+        </div>
+
+        <!-- Compliance & Legal -->
+        <div>
+          <h4 class="text-white font-bold text-sm mb-3 uppercase tracking-wider">Quality &amp; Standards</h4>
+          <ul class="space-y-2 text-xs">
+            <li><a href="compliance.html" class="hover:text-cyan-300 transition">ISO 9001:2015 Quality Policy</a></li>
+            <li><a href="compliance.html" class="hover:text-cyan-300 transition">REACH Registration Compliance</a></li>
+            <li><a href="compliance.html" class="hover:text-cyan-300 transition">GHS Hazard Labeling</a></li>
+            <li><a href="about.html" class="hover:text-cyan-300 transition">Responsible Care® Charter</a></li>
+            <li><a href="contact.html" class="hover:text-cyan-300 transition">Emergency 24/7 Response</a></li>
+          </ul>
+        </div>
+
+      </div>
+
+      <div class="pt-8 border-t border-slate-800 flex flex-col md:flex-row items-center justify-between gap-4 text-[11px] text-slate-500">
+        <div>
+          &copy; 2026 ChemHive Global Chemical Supply Co. All rights reserved. Dummy structure for corporate prototype.
+        </div>
+        <div class="flex items-center gap-6">
+          <a href="#" class="hover:text-slate-400">Privacy Policy</a>
+          <a href="#" class="hover:text-slate-400">Terms of Chemical Sale</a>
+          <a href="#" class="hover:text-slate-400">Export Controls &amp; ECCN</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- ========================================================================= -->
+  <!-- GLOBAL INTERACTIVE COMPONENTS: RFQ DRAWER, MODALS, TOAST CONTAINER      -->
+  <!-- ========================================================================= -->
+
+  <!-- RFQ Basket Backdrop -->
+  <div id="rfq-backdrop" onclick="window.ChemHiveCart.closeDrawer()" 
+       class="hidden fixed inset-0 bg-slate-900/60 backdrop-blur-sm z-50 transition-opacity duration-300 opacity-0"></div>
+
+  <!-- RFQ Drawer Slide-over -->
+  <div id="rfq-drawer" 
+       class="fixed top-0 right-0 h-full w-full max-w-md bg-white shadow-2xl z-50 transform translate-x-full transition-transform duration-300 flex flex-col">
+    <!-- Drawer Header -->
+    <div class="bg-slate-900 text-white p-5 flex items-center justify-between border-b border-slate-800">
+      <div class="flex items-center gap-3">
+        <div class="w-8 h-8 rounded-lg bg-cyan-600/30 text-cyan-400 flex items-center justify-center">
+          <i class="fa-solid fa-clipboard-list"></i>
+        </div>
+        <div>
+          <h3 class="font-bold text-sm">Quote &amp; Sample Basket</h3>
+          <p class="text-xs text-slate-400">Review requested chemicals before RFQ submission</p>
+        </div>
+      </div>
+      <button onclick="window.ChemHiveCart.closeDrawer()" class="text-slate-400 hover:text-white text-lg">&times;</button>
+    </div>
+
+    <!-- Drawer Body -->
+    <div class="p-4 flex-1 overflow-y-auto space-y-3">
+      <div id="rfq-drawer-list" class="space-y-3">
+        <!-- Rendered dynamically by rfq-cart.js -->
+      </div>
+
+      <div id="rfq-drawer-empty" class="py-16 text-center text-slate-400">
+        <i class="fa-solid fa-cart-shopping text-3xl mb-3 text-slate-300"></i>
+        <p class="text-sm font-semibold text-slate-700">Your Quote Basket is empty</p>
+        <p class="text-xs text-slate-400 mt-1 max-w-xs mx-auto">Browse our chemical catalog and click "+ Request Quote" to add items.</p>
+        <a href="products.html" onclick="window.ChemHiveCart.closeDrawer()" 
+           class="inline-block mt-4 px-4 py-2 bg-cyan-600 text-white text-xs font-bold rounded-lg hover:bg-cyan-700 transition">
+          Explore Products
+        </a>
+      </div>
+    </div>
+
+    <!-- Drawer Footer -->
+    <div id="rfq-drawer-footer" class="p-5 bg-slate-50 border-t border-slate-200 space-y-3">
+      <div class="flex items-center justify-between text-xs text-slate-600">
+        <span>Pricing:</span>
+        <span class="font-bold text-slate-800">Formal B2B Quotation</span>
+      </div>
+      <div class="flex gap-2">
+        <button onclick="window.ChemHiveCart.clear()" class="w-1/3 py-2.5 text-xs font-semibold text-rose-600 bg-rose-50 hover:bg-rose-100 rounded-xl transition">
+          Clear Basket
+        </button>
+        <button onclick="window.ChemHiveCart.openRfqModal()" class="w-2/3 py-2.5 bg-cyan-600 hover:bg-cyan-700 text-white text-xs font-bold rounded-xl shadow transition">
+          Submit RFQ Inquiry &rarr;
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Chemical Detail Modal -->
+  <div id="chemical-detail-modal" class="hidden fixed inset-0 z-50 flex items-center justify-center p-4 bg-slate-900/70 backdrop-blur-sm">
+    <div class="bg-white w-full max-w-2xl rounded-3xl shadow-2xl border border-slate-200 overflow-hidden flex flex-col max-h-[90vh]">
+      <!-- Modal Header -->
+      <div class="bg-slate-900 text-white p-6 flex items-start justify-between">
+        <div>
+          <span class="text-[10px] uppercase font-bold tracking-wider text-cyan-400">Chemical Specification Sheet</span>
+          <h3 id="modal-chem-name" class="text-xl font-black mt-1">Chemical Name</h3>
+          <div class="flex items-center gap-3 text-xs text-slate-400 font-mono mt-1">
+            <span>CAS: <strong id="modal-chem-cas" class="text-white">--</strong></span>
+            <span>Formula: <strong id="modal-chem-formula" class="text-cyan-300">--</strong></span>
+            <span>MW: <span id="modal-chem-mw">--</span></span>
+          </div>
+        </div>
+        <button onclick="window.ChemHiveCatalog.closeDetailModal()" class="text-slate-400 hover:text-white text-xl">&times;</button>
+      </div>
+
+      <!-- Modal Body -->
+      <div class="p-6 overflow-y-auto space-y-5 text-xs text-slate-700 leading-relaxed">
+        <p id="modal-chem-desc" class="text-slate-600 text-sm">Description text</p>
+
+        <div class="grid grid-cols-2 gap-3 bg-slate-50 p-4 rounded-xl border border-slate-200">
+          <div>
+            <span class="text-slate-400 font-bold uppercase text-[10px] block">Standard Purity</span>
+            <span id="modal-chem-purity" class="text-sm font-bold text-slate-900">--</span>
+          </div>
+          <div>
+            <span class="text-slate-400 font-bold uppercase text-[10px] block">Physical Appearance</span>
+            <span id="modal-chem-appearance" class="text-slate-800 font-medium">--</span>
+          </div>
+          <div>
+            <span class="text-slate-400 font-bold uppercase text-[10px] block">Hazard Classification</span>
+            <span id="modal-chem-hazard" class="text-amber-700 font-semibold">--</span>
+          </div>
+          <div>
+            <span class="text-slate-400 font-bold uppercase text-[10px] block">UN Hazmat Number</span>
+            <span id="modal-chem-un" class="font-mono text-slate-800 font-bold">--</span>
+          </div>
+          <div>
+            <span class="text-slate-400 font-bold uppercase text-[10px] block">Origin / Provenance</span>
+            <span id="modal-chem-origin" class="text-slate-700">--</span>
+          </div>
+          <div>
+            <span class="text-slate-400 font-bold uppercase text-[10px] block">Minimum Order Quantity (MOQ)</span>
+            <span id="modal-chem-moq" class="text-slate-900 font-bold">--</span>
+          </div>
+        </div>
+
+        <div>
+          <span class="font-bold text-slate-800 block mb-1">Available Product Grades:</span>
+          <div id="modal-chem-grades" class="flex flex-wrap gap-2"></div>
+        </div>
+
+        <div>
+          <span class="font-bold text-slate-800 block mb-1">Packaging Configurations:</span>
+          <ul id="modal-chem-packaging" class="grid grid-cols-2 gap-1.5"></ul>
+        </div>
+
+        <div>
+          <span class="font-bold text-slate-800 block mb-1">Target Industrial Applications:</span>
+          <div id="modal-chem-apps" class="flex flex-wrap gap-1.5"></div>
+        </div>
+      </div>
+
+      <!-- Modal Footer -->
+      <div class="p-4 bg-slate-50 border-t border-slate-200 flex items-center justify-between gap-3">
+        <button id="modal-download-sds-btn" class="px-4 py-2 bg-slate-200 hover:bg-slate-300 text-slate-800 text-xs font-bold rounded-xl transition flex items-center gap-1.5">
+          <i class="fa-solid fa-file-pdf text-rose-600"></i> Download SDS (GHS)
+        </button>
+        <button id="modal-add-to-cart-btn" class="px-6 py-2 bg-cyan-600 hover:bg-cyan-700 text-white text-xs font-bold rounded-xl transition shadow flex items-center gap-1.5">
+          <i class="fa-solid fa-cart-plus"></i> Add to Quote Basket
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <!-- RFQ Submit Modal -->
+  <div id="rfq-submit-modal" class="hidden fixed inset-0 z-50 flex items-center justify-center p-4 bg-slate-900/70 backdrop-blur-sm">
+    <div class="bg-white w-full max-w-lg rounded-3xl shadow-2xl border border-slate-200 overflow-hidden flex flex-col">
+      <div class="bg-slate-900 text-white p-5 flex items-center justify-between">
+        <div>
+          <h3 class="font-bold text-sm">Complete Your RFQ Inquiry</h3>
+          <p class="text-xs text-slate-400">Receive formal pricing and lot availability within 2 hours</p>
+        </div>
+        <button onclick="document.getElementById('rfq-submit-modal').classList.add('hidden')" class="text-slate-400 hover:text-white text-lg">&times;</button>
+      </div>
+
+      <form id="rfq-submit-form" class="p-6 space-y-4 text-xs">
+        <div>
+          <label class="block font-bold text-slate-700 mb-1">Chemicals In Inquiry:</label>
+          <ul id="modal-rfq-summary" class="bg-slate-50 border border-slate-200 rounded-xl p-3 max-h-32 overflow-y-auto space-y-1"></ul>
+        </div>
+
+        <div class="grid grid-cols-2 gap-3">
+          <div>
+            <label class="block font-semibold text-slate-700 mb-1">Company / Organization *</label>
+            <input type="text" required placeholder="e.g. Apex Pharma Corp" class="w-full px-3 py-2 rounded-lg border border-slate-300 focus:outline-cyan-500">
+          </div>
+          <div>
+            <label class="block font-semibold text-slate-700 mb-1">Your Full Name *</label>
+            <input type="text" required placeholder="e.g. Sarah Jenkins" class="w-full px-3 py-2 rounded-lg border border-slate-300 focus:outline-cyan-500">
+          </div>
+        </div>
+
+        <div class="grid grid-cols-2 gap-3">
+          <div>
+            <label class="block font-semibold text-slate-700 mb-1">Business Email *</label>
+            <input type="email" required placeholder="name@company.com" class="w-full px-3 py-2 rounded-lg border border-slate-300 focus:outline-cyan-500">
+          </div>
+          <div>
+            <label class="block font-semibold text-slate-700 mb-1">Phone / WhatsApp</label>
+            <input type="tel" placeholder="+1 (555) 000-0000" class="w-full px-3 py-2 rounded-lg border border-slate-300 focus:outline-cyan-500">
+          </div>
+        </div>
+
+        <div>
+          <label class="block font-semibold text-slate-700 mb-1">Destination Port / Delivery City</label>
+          <input type="text" placeholder="e.g. Port of Rotterdam, NL / Houston, TX" class="w-full px-3 py-2 rounded-lg border border-slate-300 focus:outline-cyan-500">
+        </div>
+
+        <div>
+          <label class="block font-semibold text-slate-700 mb-1">Additional Specifications / Special Requirements</label>
+          <textarea rows="2" placeholder="Specific purity grade, target lot size, sample bottle request..." class="w-full px-3 py-2 rounded-lg border border-slate-300 focus:outline-cyan-500"></textarea>
+        </div>
+
+        <div class="pt-2 flex justify-end gap-2">
+          <button type="button" onclick="document.getElementById('rfq-submit-modal').classList.add('hidden')" class="px-4 py-2 bg-slate-100 hover:bg-slate-200 text-slate-700 font-semibold rounded-lg">Cancel</button>
+          <button type="submit" class="px-6 py-2 bg-cyan-600 hover:bg-cyan-700 text-white font-bold rounded-lg shadow">Submit RFQ Request</button>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <!-- RFQ Success Confirmation Modal -->
+  <div id="rfq-success-modal" class="hidden fixed inset-0 z-50 flex items-center justify-center p-4 bg-slate-900/70 backdrop-blur-sm">
+    <div class="bg-white w-full max-w-md rounded-3xl p-6 sm:p-8 shadow-2xl text-center space-y-4">
+      <div class="w-16 h-16 bg-emerald-100 text-emerald-600 rounded-full flex items-center justify-center text-3xl mx-auto">
+        <i class="fa-solid fa-circle-check"></i>
+      </div>
+      <h3 class="text-xl font-bold text-slate-900">RFQ Inquiry Submitted!</h3>
+      <p class="text-xs text-slate-600 leading-relaxed">
+        Thank you. Your Request for Quotation has been registered in the ChemHive Enterprise Dispatch system under:
+      </p>
+      <div class="p-3 bg-slate-100 rounded-xl font-mono text-cyan-700 font-bold text-sm tracking-wider" id="success-rfq-ref">
+        RFQ-CH-829143
+      </div>
+      <p class="text-[11px] text-slate-500">
+        Our commercial chemical specialist for your territory will email the formal commercial proposal with SDS &amp; Certificate of Analysis attached within 2 hours.
+      </p>
+      <button onclick="document.getElementById('rfq-success-modal').classList.add('hidden')" 
+              class="w-full py-2.5 bg-slate-900 hover:bg-slate-800 text-white text-xs font-bold rounded-xl transition">
+        Done / Return to Catalog
+      </button>
+    </div>
+  </div>
+
+  <!-- Toast Notification Container (Injected by JS) -->
+  <div id="toast-container" class="fixed bottom-5 right-5 z-50 flex flex-col gap-2 pointer-events-none"></div>
+
+  <!-- Scripts -->
+  <script src="js/products-data.js"></script>
+  <script src="js/rfq-cart.js"></script>
+  <script src="js/catalog.js"></script>
+  <script src="js/compliance.js"></script>
+  <script src="js/main.js"></script>
+</body>
+</html>

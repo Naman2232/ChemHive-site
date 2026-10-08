@@ -1,0 +1,373 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Contact Us & Request a Quote (RFQ) | ChemHive</title>
+  <meta name="description" content="Submit a Request for Quotation (RFQ) for bulk chemicals, solvent supply, or custom blending. Reach our international distribution desks in Houston, Rotterdam, and Singapore.">
+  <link rel="icon" type="image/svg+xml" href="assets/favicon.svg">
+
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            chem: {
+              navy: '#0b1120',
+              slate: '#1e293b',
+              cyan: '#0284c7',
+              cyanLight: '#38bdf8',
+              emerald: '#10b981',
+              emeraldDark: '#059669',
+            }
+          },
+          fontFamily: {
+            sans: ['"Plus Jakarta Sans"', 'system-ui', 'sans-serif'],
+            mono: ['"JetBrains Mono"', 'monospace'],
+          }
+        }
+      }
+    }
+  </script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body class="bg-slate-50 text-slate-800 flex flex-col min-h-screen">
+
+  <!-- Top Utility Bar -->
+  <div class="bg-chem-navy text-slate-300 text-xs py-2 px-4 border-b border-slate-800">
+    <div class="max-w-7xl mx-auto flex flex-wrap items-center justify-between gap-3">
+      <div class="flex items-center gap-6">
+        <span class="flex items-center gap-1.5 text-emerald-400 font-medium">
+          <i class="fa-solid fa-clock"></i> Commercial Sales Desk Open (2h Response Guarantee)
+        </span>
+      </div>
+      <div class="flex items-center gap-4">
+        <a href="tel:+18005552436" class="hover:text-cyan-300 transition flex items-center gap-1.5">
+          <i class="fa-solid fa-phone text-cyan-400"></i> +1 (800) 555-CHEM
+        </a>
+      </div>
+    </div>
+  </div>
+
+  <!-- Header -->
+  <header id="main-nav" class="sticky top-0 z-40 bg-white border-b border-slate-200 transition-all duration-200">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="flex items-center justify-between h-20">
+        <a href="index.html" class="flex items-center gap-3">
+          <img src="assets/logo.svg" alt="ChemHive Logo" class="h-10 sm:h-12 w-auto">
+        </a>
+
+        <nav class="hidden lg:flex items-center space-x-7 text-sm font-semibold text-slate-600">
+          <a href="index.html" class="nav-link hover:text-cyan-600 transition">Home</a>
+          <a href="products.html" class="nav-link hover:text-cyan-600 transition">Chemical Catalog</a>
+          <a href="services.html" class="nav-link hover:text-cyan-600 transition">Services &amp; Supply Chain</a>
+          <a href="compliance.html" class="nav-link hover:text-cyan-600 transition">Quality &amp; SDS</a>
+          <a href="about.html" class="nav-link hover:text-cyan-600 transition">About Us</a>
+          <a href="contact.html" class="nav-link text-cyan-600 font-bold transition">Contact</a>
+        </nav>
+
+        <div class="flex items-center gap-3">
+          <button onclick="window.ChemHiveCart.openDrawer()" class="relative p-2.5 rounded-xl bg-slate-100 hover:bg-slate-200 text-slate-700 transition">
+            <i class="fa-solid fa-clipboard-list text-base"></i>
+            <span class="cart-count-badge hidden absolute -top-1 -right-1 w-5 h-5 bg-cyan-600 text-white rounded-full text-[10px] font-bold items-center justify-center shadow">0</span>
+          </button>
+          <a href="#rfq-form" class="hidden sm:inline-flex items-center gap-2 bg-gradient-to-r from-cyan-600 to-sky-600 text-white text-xs font-bold px-4 py-2.5 rounded-xl shadow transition">
+            Request Quote
+          </a>
+          <button id="mobile-menu-btn" class="lg:hidden p-2 rounded-lg text-slate-600">
+            <i class="fa-solid fa-bars text-xl"></i>
+          </button>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <!-- BANNER -->
+  <section class="bg-chem-navy text-white py-14 bg-hex-grid relative">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+      <div class="max-w-3xl">
+        <span class="text-cyan-400 font-bold text-xs uppercase tracking-widest">COMMERCIAL SOURCING &amp; RFQ DESK</span>
+        <h1 class="text-3xl sm:text-5xl font-black mt-2 mb-4 leading-tight">
+          Request a Commercial Chemical Quotation
+        </h1>
+        <p class="text-slate-300 text-base leading-relaxed">
+          Get competitive spot or term contract pricing directly from our chemical procurement and technical sales teams. We reply within 2 business hours with lot availability, CIF/FOB pricing, and full specification data sheets.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- RFQ FORM & CONTACT INFO SECTION -->
+  <section id="rfq-form" class="py-16 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="grid grid-cols-1 lg:grid-cols-12 gap-12">
+      
+      <!-- Left: Comprehensive RFQ Form -->
+      <div class="lg:col-span-7 bg-white p-8 sm:p-10 rounded-3xl border border-slate-200 shadow-xl">
+        <div class="flex items-center justify-between pb-6 border-b border-slate-200 mb-6">
+          <div>
+            <h2 class="text-2xl font-black text-slate-900">Commercial RFQ Form</h2>
+            <p class="text-xs text-slate-500 mt-0.5">Fill out your chemical inquiry below for formal quotation</p>
+          </div>
+          <span class="text-xs font-bold px-3 py-1 bg-cyan-50 text-cyan-700 border border-cyan-200 rounded-full">
+            B2B Commercial Only
+          </span>
+        </div>
+
+        <form id="rfq-submit-form" class="space-y-5 text-xs">
+          
+          <!-- Inquiry Type Radios -->
+          <div>
+            <label class="block font-bold text-slate-700 mb-2">Inquiry Type *</label>
+            <div class="grid grid-cols-2 sm:grid-cols-4 gap-2">
+              <label class="flex items-center gap-2 p-2.5 rounded-xl border border-slate-200 hover:border-cyan-500 cursor-pointer bg-slate-50 text-slate-700 font-medium">
+                <input type="radio" name="inquiry_type" value="bulk" checked class="text-cyan-600">
+                <span>Bulk Supply</span>
+              </label>
+              <label class="flex items-center gap-2 p-2.5 rounded-xl border border-slate-200 hover:border-cyan-500 cursor-pointer bg-slate-50 text-slate-700 font-medium">
+                <input type="radio" name="inquiry_type" value="sample" class="text-cyan-600">
+                <span>Lab Sample</span>
+              </label>
+              <label class="flex items-center gap-2 p-2.5 rounded-xl border border-slate-200 hover:border-cyan-500 cursor-pointer bg-slate-50 text-slate-700 font-medium">
+                <input type="radio" name="inquiry_type" value="blending" class="text-cyan-600">
+                <span>Custom Blend</span>
+              </label>
+              <label class="flex items-center gap-2 p-2.5 rounded-xl border border-slate-200 hover:border-cyan-500 cursor-pointer bg-slate-50 text-slate-700 font-medium">
+                <input type="radio" name="inquiry_type" value="contract" class="text-cyan-600">
+                <span>Term Contract</span>
+              </label>
+            </div>
+          </div>
+
+          <!-- Chemical Details -->
+          <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+            <div>
+              <label class="block font-bold text-slate-700 mb-1">Target Chemical Name *</label>
+              <input type="text" required placeholder="e.g. Isopropyl Alcohol / Acetone" 
+                     class="w-full px-3.5 py-2.5 rounded-xl border border-slate-300 focus:outline-cyan-500 font-medium">
+            </div>
+            <div>
+              <label class="block font-bold text-slate-700 mb-1">CAS Registry Number (if known)</label>
+              <input type="text" placeholder="e.g. 67-63-0" 
+                     class="w-full px-3.5 py-2.5 rounded-xl border border-slate-300 focus:outline-cyan-500 font-mono">
+            </div>
+          </div>
+
+          <!-- Quantity, Unit & Grade -->
+          <div class="grid grid-cols-1 sm:grid-cols-3 gap-4">
+            <div>
+              <label class="block font-bold text-slate-700 mb-1">Estimated Quantity *</label>
+              <input type="number" required min="1" placeholder="e.g. 20" 
+                     class="w-full px-3.5 py-2.5 rounded-xl border border-slate-300 focus:outline-cyan-500 font-medium">
+            </div>
+            <div>
+              <label class="block font-bold text-slate-700 mb-1">Unit of Measure *</label>
+              <select class="w-full px-3.5 py-2.5 rounded-xl border border-slate-300 bg-white focus:outline-cyan-500 font-medium">
+                <option>Metric Tons (MT)</option>
+                <option>200L Drums</option>
+                <option>1,000L IBC Totes</option>
+                <option>25kg Bags</option>
+                <option>ISO Bulk Tanker</option>
+                <option>Sample Pack (500ml / 1kg)</option>
+              </select>
+            </div>
+            <div>
+              <label class="block font-bold text-slate-700 mb-1">Required Grade</label>
+              <select class="w-full px-3.5 py-2.5 rounded-xl border border-slate-300 bg-white focus:outline-cyan-500 font-medium">
+                <option>Technical / Industrial</option>
+                <option>USP / BP Pharmaceutical</option>
+                <option>ACS Reagent</option>
+                <option>Food Grade (FCC)</option>
+              </select>
+            </div>
+          </div>
+
+          <!-- Logistics & Shipping Terms -->
+          <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+            <div>
+              <label class="block font-bold text-slate-700 mb-1">Destination Port or Delivery City *</label>
+              <input type="text" required placeholder="e.g. Port of Antwerp, Belgium / Houston, TX" 
+                     class="w-full px-3.5 py-2.5 rounded-xl border border-slate-300 focus:outline-cyan-500 font-medium">
+            </div>
+            <div>
+              <label class="block font-bold text-slate-700 mb-1">Incoterms Preferred</label>
+              <select class="w-full px-3.5 py-2.5 rounded-xl border border-slate-300 bg-white focus:outline-cyan-500 font-medium">
+                <option>CIF (Cost, Insurance &amp; Freight)</option>
+                <option>FOB (Free On Board)</option>
+                <option>CFR (Cost &amp; Freight)</option>
+                <option>DDP (Delivered Duty Paid)</option>
+                <option>EXW (Ex Works Factory)</option>
+              </select>
+            </div>
+          </div>
+
+          <!-- Buyer Organization -->
+          <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+            <div>
+              <label class="block font-bold text-slate-700 mb-1">Company / Organization *</label>
+              <input type="text" required placeholder="e.g. Global Coatings Ltd." 
+                     class="w-full px-3.5 py-2.5 rounded-xl border border-slate-300 focus:outline-cyan-500 font-medium">
+            </div>
+            <div>
+              <label class="block font-bold text-slate-700 mb-1">Your Full Name *</label>
+              <input type="text" required placeholder="e.g. Arthur Pendelton" 
+                     class="w-full px-3.5 py-2.5 rounded-xl border border-slate-300 focus:outline-cyan-500 font-medium">
+            </div>
+          </div>
+
+          <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+            <div>
+              <label class="block font-bold text-slate-700 mb-1">Corporate Email Address *</label>
+              <input type="email" required placeholder="procurement@company.com" 
+                     class="w-full px-3.5 py-2.5 rounded-xl border border-slate-300 focus:outline-cyan-500 font-medium">
+            </div>
+            <div>
+              <label class="block font-bold text-slate-700 mb-1">Telephone / WhatsApp</label>
+              <input type="tel" placeholder="+1 (713) 555-0144" 
+                     class="w-full px-3.5 py-2.5 rounded-xl border border-slate-300 focus:outline-cyan-500 font-medium">
+            </div>
+          </div>
+
+          <!-- Notes -->
+          <div>
+            <label class="block font-bold text-slate-700 mb-1">Additional Specifications or Inclusions</label>
+            <textarea rows="3" placeholder="Purity thresholds, specialized packaging closures, specific COA parameters needed..." 
+                      class="w-full px-3.5 py-2.5 rounded-xl border border-slate-300 focus:outline-cyan-500 font-medium"></textarea>
+          </div>
+
+          <!-- Submit Button -->
+          <div class="pt-2">
+            <button type="submit" 
+                    class="w-full py-4 bg-gradient-to-r from-cyan-600 to-sky-600 hover:from-cyan-700 hover:to-sky-700 text-white font-bold text-sm rounded-xl shadow-lg transition flex items-center justify-center gap-2">
+              <i class="fa-solid fa-paper-plane"></i> Submit Formal RFQ Inquiry
+            </button>
+            <p class="text-[11px] text-slate-400 text-center mt-2">
+              <i class="fa-solid fa-lock text-slate-400 mr-1"></i> Your specifications are strictly governed under standard B2B confidentiality agreements.
+            </p>
+          </div>
+
+        </form>
+      </div>
+
+      <!-- Right: Global Offices & Emergency Hotline -->
+      <div class="lg:col-span-5 space-y-6">
+        
+        <!-- Emergency Box -->
+        <div class="p-6 bg-gradient-to-br from-rose-900 to-slate-900 text-white rounded-3xl border border-rose-800 shadow-xl">
+          <div class="flex items-center gap-3 text-rose-300 text-xs font-bold uppercase tracking-wider mb-2">
+            <i class="fa-solid fa-triangle-exclamation text-rose-400 text-lg"></i>
+            24/7 CHEMTREC / HAZMAT EMERGENCY
+          </div>
+          <h3 class="text-xl font-black mb-2">Immediate Transport Incident Response</h3>
+          <p class="text-xs text-rose-200/90 leading-relaxed mb-4">
+            For chemical transit emergencies, container integrity leaks, or emergency SDS exposure queries during active transport:
+          </p>
+          <div class="p-3 bg-black/40 rounded-xl font-mono text-base font-extrabold text-white flex items-center justify-between border border-rose-700/50">
+            <span>+1 (800) 555-CHEM</span>
+            <span class="text-xs text-rose-300 font-sans font-medium">Toll-Free 24/7</span>
+          </div>
+        </div>
+
+        <!-- Global Locations -->
+        <div class="bg-white p-6 sm:p-8 rounded-3xl border border-slate-200 shadow-sm space-y-6">
+          <h3 class="text-lg font-bold text-slate-900 flex items-center gap-2">
+            <i class="fa-solid fa-map-location-dot text-cyan-600"></i> International Hubs
+          </h3>
+
+          <div class="space-y-4 text-xs">
+            <div class="p-4 bg-slate-50 rounded-2xl border border-slate-200">
+              <div class="flex items-center justify-between mb-1">
+                <strong class="text-slate-900 text-sm">Houston (Americas HQ)</strong>
+                <span class="text-[10px] bg-cyan-100 text-cyan-800 font-bold px-2 py-0.5 rounded">Terminal Hub</span>
+              </div>
+              <p class="text-slate-600">1400 Bayport Industrial Blvd, Houston, TX 77017, USA</p>
+              <p class="text-slate-500 font-mono mt-1"><i class="fa-solid fa-phone text-cyan-600 mr-1"></i> +1 (713) 555-0199</p>
+            </div>
+
+            <div class="p-4 bg-slate-50 rounded-2xl border border-slate-200">
+              <div class="flex items-center justify-between mb-1">
+                <strong class="text-slate-900 text-sm">Rotterdam (Europe Hub)</strong>
+                <span class="text-[10px] bg-emerald-100 text-emerald-800 font-bold px-2 py-0.5 rounded">EU Port Hub</span>
+              </div>
+              <p class="text-slate-600">Havennummer 4210, Maasvlakte, 3199 LK Rotterdam, Netherlands</p>
+              <p class="text-slate-500 font-mono mt-1"><i class="fa-solid fa-phone text-emerald-600 mr-1"></i> +31 10 555 8920</p>
+            </div>
+
+            <div class="p-4 bg-slate-50 rounded-2xl border border-slate-200">
+              <div class="flex items-center justify-between mb-1">
+                <strong class="text-slate-900 text-sm">Singapore (APAC Hub)</strong>
+                <span class="text-[10px] bg-sky-100 text-sky-800 font-bold px-2 py-0.5 rounded">Asia Terminal</span>
+              </div>
+              <p class="text-slate-600">12 Sakra Road, Jurong Island, Singapore 627880</p>
+              <p class="text-slate-500 font-mono mt-1"><i class="fa-solid fa-phone text-sky-600 mr-1"></i> +65 6555 3300</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Buyer FAQ -->
+        <div class="bg-white p-6 rounded-3xl border border-slate-200 shadow-sm space-y-3">
+          <h4 class="font-bold text-slate-900 text-sm mb-2">Chemical Buyer FAQ</h4>
+          <details class="text-xs group">
+            <summary class="font-semibold text-slate-800 cursor-pointer list-none flex justify-between py-1 border-b border-slate-100">
+              <span>What is the Minimum Order Quantity (MOQ)?</span>
+              <span class="text-cyan-600 group-open:rotate-180 transition">&darr;</span>
+            </summary>
+            <p class="text-slate-600 py-2">
+              For bulk commodity chemicals, MOQ is typically 1 metric ton or one pallet (4 drums / 1 IBC). For high-value fine specialty reagents, packaging starts from 25kg or 25L.
+            </p>
+          </details>
+
+          <details class="text-xs group">
+            <summary class="font-semibold text-slate-800 cursor-pointer list-none flex justify-between py-1 border-b border-slate-100">
+              <span>Are Certificates of Analysis (COA) included?</span>
+              <span class="text-cyan-600 group-open:rotate-180 transition">&darr;</span>
+            </summary>
+            <p class="text-slate-600 py-2">
+              Yes, lot-specific COA documents certified by our ISO 17025 accredited analytical lab are emailed before shipping and physically attached to every container pallet.
+            </p>
+          </details>
+        </div>
+
+      </div>
+
+    </div>
+  </section>
+
+  <!-- RFQ Success Confirmation Modal -->
+  <div id="rfq-success-modal" class="hidden fixed inset-0 z-50 flex items-center justify-center p-4 bg-slate-900/70 backdrop-blur-sm">
+    <div class="bg-white w-full max-w-md rounded-3xl p-6 sm:p-8 shadow-2xl text-center space-y-4">
+      <div class="w-16 h-16 bg-emerald-100 text-emerald-600 rounded-full flex items-center justify-center text-3xl mx-auto">
+        <i class="fa-solid fa-circle-check"></i>
+      </div>
+      <h3 class="text-xl font-bold text-slate-900">RFQ Inquiry Submitted!</h3>
+      <p class="text-xs text-slate-600 leading-relaxed">
+        Thank you. Your Request for Quotation has been registered in the ChemHive Enterprise Dispatch system under:
+      </p>
+      <div class="p-3 bg-slate-100 rounded-xl font-mono text-cyan-700 font-bold text-sm tracking-wider" id="success-rfq-ref">
+        RFQ-CH-829143
+      </div>
+      <p class="text-[11px] text-slate-500">
+        Our commercial chemical specialist will email the formal commercial proposal with SDS &amp; Certificate of Analysis attached within 2 hours.
+      </p>
+      <button onclick="document.getElementById('rfq-success-modal').classList.add('hidden')" 
+              class="w-full py-2.5 bg-slate-900 hover:bg-slate-800 text-white text-xs font-bold rounded-xl transition">
+        Done / Return to Catalog
+      </button>
+    </div>
+  </div>
+
+  <!-- Footer -->
+  <footer class="bg-chem-navy text-slate-400 text-xs py-8 border-t border-slate-800 mt-auto">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col sm:flex-row items-center justify-between gap-4">
+      <img src="assets/logo-white.svg" alt="ChemHive Logo" class="h-8 w-auto">
+      <p>&copy; 2026 ChemHive Global Chemical Supply Co. All rights reserved.</p>
+    </div>
+  </footer>
+
+  <!-- Scripts -->
+  <script src="js/products-data.js"></script>
+  <script src="js/rfq-cart.js"></script>
+  <script src="js/main.js"></script>
+</body>
+</html>

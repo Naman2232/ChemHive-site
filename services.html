@@ -1,0 +1,331 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Chemical Supply Chain & Technical Services | ChemHive</title>
+  <meta name="description" content="End-to-end chemical supply chain solutions: custom blending, bulk terminal storage, Hazmat ADR logistics, contract repackaging, and vendor-managed inventory.">
+  <link rel="icon" type="image/svg+xml" href="assets/favicon.svg">
+
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            chem: {
+              navy: '#0b1120',
+              slate: '#1e293b',
+              cyan: '#0284c7',
+              cyanLight: '#38bdf8',
+              emerald: '#10b981',
+              emeraldDark: '#059669',
+            }
+          },
+          fontFamily: {
+            sans: ['"Plus Jakarta Sans"', 'system-ui', 'sans-serif'],
+            mono: ['"JetBrains Mono"', 'monospace'],
+          }
+        }
+      }
+    }
+  </script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body class="bg-slate-50 text-slate-800 flex flex-col min-h-screen">
+
+  <!-- Top Utility Bar -->
+  <div class="bg-chem-navy text-slate-300 text-xs py-2 px-4 border-b border-slate-800">
+    <div class="max-w-7xl mx-auto flex flex-wrap items-center justify-between gap-3">
+      <div class="flex items-center gap-6">
+        <span class="flex items-center gap-1.5 text-emerald-400 font-medium">
+          <span class="w-2 h-2 rounded-full bg-emerald-400 pulse-emerald inline-block"></span>
+          Hazmat Fleets &amp; Tanker Terminals Active
+        </span>
+        <span class="hidden md:inline-flex items-center gap-2 text-slate-400">
+          <i class="fa-solid fa-award text-cyan-400"></i> ISO 9001:2015 &amp; REACH Compliant
+        </span>
+      </div>
+      <div class="flex items-center gap-4">
+        <a href="tel:+18005552436" class="hover:text-cyan-300 transition flex items-center gap-1.5">
+          <i class="fa-solid fa-phone text-cyan-400"></i>
+          <span class="hidden sm:inline">24/7 Logistics &amp; Orders:</span> <strong>+1 (800) 555-CHEM</strong>
+        </a>
+      </div>
+    </div>
+  </div>
+
+  <!-- Header -->
+  <header id="main-nav" class="sticky top-0 z-40 bg-white border-b border-slate-200 transition-all duration-200">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="flex items-center justify-between h-20">
+        <a href="index.html" class="flex items-center gap-3">
+          <img src="assets/logo.svg" alt="ChemHive Logo" class="h-10 sm:h-12 w-auto">
+        </a>
+
+        <nav class="hidden lg:flex items-center space-x-7 text-sm font-semibold text-slate-600">
+          <a href="index.html" class="nav-link hover:text-cyan-600 transition">Home</a>
+          <a href="products.html" class="nav-link hover:text-cyan-600 transition">Chemical Catalog</a>
+          <a href="services.html" class="nav-link text-cyan-600 font-bold transition">Services &amp; Supply Chain</a>
+          <a href="compliance.html" class="nav-link hover:text-cyan-600 transition">Quality &amp; SDS</a>
+          <a href="about.html" class="nav-link hover:text-cyan-600 transition">About Us</a>
+          <a href="contact.html" class="nav-link hover:text-cyan-600 transition">Contact</a>
+        </nav>
+
+        <div class="flex items-center gap-3">
+          <button onclick="window.ChemHiveCart.openDrawer()" class="relative p-2.5 rounded-xl bg-slate-100 hover:bg-slate-200 text-slate-700 transition">
+            <i class="fa-solid fa-clipboard-list text-base"></i>
+            <span class="cart-count-badge hidden absolute -top-1 -right-1 w-5 h-5 bg-cyan-600 text-white rounded-full text-[10px] font-bold items-center justify-center shadow">0</span>
+          </button>
+          <a href="contact.html#rfq-form" class="hidden sm:inline-flex items-center gap-2 bg-gradient-to-r from-cyan-600 to-sky-600 text-white text-xs font-bold px-4 py-2.5 rounded-xl shadow transition">
+            Request Quote
+          </a>
+          <button id="mobile-menu-btn" class="lg:hidden p-2 rounded-lg text-slate-600">
+            <i class="fa-solid fa-bars text-xl"></i>
+          </button>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <!-- HERO BANNER -->
+  <section class="bg-chem-navy text-white py-14 bg-hex-grid relative">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+      <div class="max-w-3xl">
+        <span class="text-cyan-400 font-bold text-xs uppercase tracking-widest">TECHNICAL CAPABILITIES &amp; INFRASTRUCTURE</span>
+        <h1 class="text-3xl sm:text-5xl font-black mt-2 mb-4 leading-tight">
+          Precision Chemical Logistics &amp; Custom Blending
+        </h1>
+        <p class="text-slate-300 text-base leading-relaxed">
+          Beyond supplying commodity and fine chemicals, ChemHive engineers complete value-added supply chain architectures: tailored formulation, hazardous materials transport, cleanroom repackaging, and vendor-managed terminal reserves.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- 6 CORE CAPABILITIES -->
+  <section class="py-16 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="text-center max-w-2xl mx-auto mb-12">
+      <h2 class="text-3xl font-black text-slate-900">End-to-End Value Added Services</h2>
+      <p class="text-sm text-slate-600 mt-2">Engineered to minimize operational risk and optimize manufacturing uptime.</p>
+    </div>
+
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+      
+      <!-- Service 1 -->
+      <div class="bg-white rounded-2xl border border-slate-200 p-8 shadow-sm hover:shadow-xl hover:border-cyan-400 transition-all flex flex-col justify-between">
+        <div>
+          <div class="w-14 h-14 rounded-2xl bg-cyan-50 text-cyan-600 flex items-center justify-center text-2xl mb-6">
+            <i class="fa-solid fa-flask-vial"></i>
+          </div>
+          <h3 class="text-xl font-bold text-slate-900 mb-2">Custom Liquid &amp; Powder Blending</h3>
+          <p class="text-xs text-slate-600 leading-relaxed mb-4">
+            Automated multi-component liquid blending and dry powder homogenization. We manufacture bespoke reagent ratios, acid dilutions (e.g. 10%-70%), and solvent mixtures with tight tolerances.
+          </p>
+          <ul class="text-xs text-slate-500 space-y-1.5 font-medium">
+            <li><i class="fa-solid fa-check text-emerald-500 mr-2"></i> Batch capacities from 1,000L to 30,000L</li>
+            <li><i class="fa-solid fa-check text-emerald-500 mr-2"></i> Explosion-proof Class 1 Div 1 mixing</li>
+            <li><i class="fa-solid fa-check text-emerald-500 mr-2"></i> Strict non-disclosure protection for client formulas</li>
+          </ul>
+        </div>
+        <div class="mt-6 pt-4 border-t border-slate-100">
+          <a href="contact.html?service=blending#rfq-form" class="text-xs font-bold text-cyan-600 hover:text-cyan-700">Request Blending Quote &rarr;</a>
+        </div>
+      </div>
+
+      <!-- Service 2 -->
+      <div class="bg-white rounded-2xl border border-slate-200 p-8 shadow-sm hover:shadow-xl hover:border-cyan-400 transition-all flex flex-col justify-between">
+        <div>
+          <div class="w-14 h-14 rounded-2xl bg-emerald-50 text-emerald-600 flex items-center justify-center text-2xl mb-6">
+            <i class="fa-solid fa-truck-droplet"></i>
+          </div>
+          <h3 class="text-xl font-bold text-slate-900 mb-2">Hazmat Certified Global Transport</h3>
+          <p class="text-xs text-slate-600 leading-relaxed mb-4">
+            ADR, IMDG, and DOT certified transportation covering hazard classes 3 (Flammables), 5.1 (Oxidizers), 6.1 (Toxics), 8 (Corrosives), and 9 (Miscellaneous).
+          </p>
+          <ul class="text-xs text-slate-500 space-y-1.5 font-medium">
+            <li><i class="fa-solid fa-check text-emerald-500 mr-2"></i> Dedicated rubber &amp; 316 stainless steel road tankers</li>
+            <li><i class="fa-solid fa-check text-emerald-500 mr-2"></i> Real-time GPS &amp; temperature telematics tracking</li>
+            <li><i class="fa-solid fa-check text-emerald-500 mr-2"></i> Emergency hazmat spill teams on 24/7 standby</li>
+          </ul>
+        </div>
+        <div class="mt-6 pt-4 border-t border-slate-100">
+          <a href="contact.html?service=logistics#rfq-form" class="text-xs font-bold text-emerald-600 hover:text-emerald-700">Inquire Freight Terms &rarr;</a>
+        </div>
+      </div>
+
+      <!-- Service 3 -->
+      <div class="bg-white rounded-2xl border border-slate-200 p-8 shadow-sm hover:shadow-xl hover:border-cyan-400 transition-all flex flex-col justify-between">
+        <div>
+          <div class="w-14 h-14 rounded-2xl bg-sky-50 text-sky-600 flex items-center justify-center text-2xl mb-6">
+            <i class="fa-solid fa-boxes-packing"></i>
+          </div>
+          <h3 class="text-xl font-bold text-slate-900 mb-2">Contract Repackaging &amp; Private Label</h3>
+          <p class="text-xs text-slate-600 leading-relaxed mb-4">
+            Break bulk liquid and solid chemical cargo down into customer-ready packaging formats. From 24 MT ISO tank transfers into 200L drums, down to 1L lab bottles.
+          </p>
+          <ul class="text-xs text-slate-500 space-y-1.5 font-medium">
+            <li><i class="fa-solid fa-check text-emerald-500 mr-2"></i> Nitrogen-purged filling to stop oxidation</li>
+            <li><i class="fa-solid fa-check text-emerald-500 mr-2"></i> Custom private label with client branding</li>
+            <li><i class="fa-solid fa-check text-emerald-500 mr-2"></i> Multilingual GHS Rev 9 hazard labels</li>
+          </ul>
+        </div>
+        <div class="mt-6 pt-4 border-t border-slate-100">
+          <a href="contact.html?service=repackaging#rfq-form" class="text-xs font-bold text-sky-600 hover:text-sky-700">Explore Packaging Options &rarr;</a>
+        </div>
+      </div>
+
+      <!-- Service 4 -->
+      <div class="bg-white rounded-2xl border border-slate-200 p-8 shadow-sm hover:shadow-xl hover:border-cyan-400 transition-all flex flex-col justify-between">
+        <div>
+          <div class="w-14 h-14 rounded-2xl bg-amber-50 text-amber-600 flex items-center justify-center text-2xl mb-6">
+            <i class="fa-solid fa-warehouse"></i>
+          </div>
+          <h3 class="text-xl font-bold text-slate-900 mb-2">Bulk Terminal Storage &amp; VMI</h3>
+          <p class="text-xs text-slate-600 leading-relaxed mb-4">
+            Vendor Managed Inventory (VMI) programs and safety stock buffering in Houston, Rotterdam, Antwerp, and Singapore. We eliminate supply disruptions with guaranteed reserve volume.
+          </p>
+          <ul class="text-xs text-slate-500 space-y-1.5 font-medium">
+            <li><i class="fa-solid fa-check text-emerald-500 mr-2"></i> Heated tanks, cold storage, and inert gas pads</li>
+            <li><i class="fa-solid fa-check text-emerald-500 mr-2"></i> Bonded customs-free warehousing zones</li>
+            <li><i class="fa-solid fa-check text-emerald-500 mr-2"></i> Automated replenishment triggers</li>
+          </ul>
+        </div>
+        <div class="mt-6 pt-4 border-t border-slate-100">
+          <a href="contact.html?service=vmi#rfq-form" class="text-xs font-bold text-amber-600 hover:text-amber-700">Setup VMI Account &rarr;</a>
+        </div>
+      </div>
+
+      <!-- Service 5 -->
+      <div class="bg-white rounded-2xl border border-slate-200 p-8 shadow-sm hover:shadow-xl hover:border-cyan-400 transition-all flex flex-col justify-between">
+        <div>
+          <div class="w-14 h-14 rounded-2xl bg-indigo-50 text-indigo-600 flex items-center justify-center text-2xl mb-6">
+            <i class="fa-solid fa-microscope"></i>
+          </div>
+          <h3 class="text-xl font-bold text-slate-900 mb-2">Quality Analytics &amp; Lot Testing</h3>
+          <p class="text-xs text-slate-600 leading-relaxed mb-4">
+            In-house ISO 17025 accredited analytical laboratories verify every raw material batch before delivery. Full Certificate of Analysis (COA) provided with every shipment.
+          </p>
+          <ul class="text-xs text-slate-500 space-y-1.5 font-medium">
+            <li><i class="fa-solid fa-check text-emerald-500 mr-2"></i> HPLC, Gas Chromatography (GC-MS)</li>
+            <li><i class="fa-solid fa-check text-emerald-500 mr-2"></i> Karl Fischer moisture titrations</li>
+            <li><i class="fa-solid fa-check text-emerald-500 mr-2"></i> Heavy metal ICP-MS screening</li>
+          </ul>
+        </div>
+        <div class="mt-6 pt-4 border-t border-slate-100">
+          <a href="compliance.html" class="text-xs font-bold text-indigo-600 hover:text-indigo-700">View Lab Standards &rarr;</a>
+        </div>
+      </div>
+
+      <!-- Service 6 -->
+      <div class="bg-white rounded-2xl border border-slate-200 p-8 shadow-sm hover:shadow-xl hover:border-cyan-400 transition-all flex flex-col justify-between">
+        <div>
+          <div class="w-14 h-14 rounded-2xl bg-rose-50 text-rose-600 flex items-center justify-center text-2xl mb-6">
+            <i class="fa-solid fa-scale-balanced"></i>
+          </div>
+          <h3 class="text-xl font-bold text-slate-900 mb-2">Regulatory &amp; REACH Compliance</h3>
+          <p class="text-xs text-slate-600 leading-relaxed mb-4">
+            Cross-border chemical trade requires navigating EPA TSCA, EU REACH, FDA cGMP, and GHS hazcom rules. Our in-house regulatory counsel oversees international trade legality.
+          </p>
+          <ul class="text-xs text-slate-500 space-y-1.5 font-medium">
+            <li><i class="fa-solid fa-check text-emerald-500 mr-2"></i> REACH Only Representative (OR) services</li>
+            <li><i class="fa-solid fa-check text-emerald-500 mr-2"></i> SDS authoring in 32 global languages</li>
+            <li><i class="fa-solid fa-check text-emerald-500 mr-2"></i> Dual-use export control license management</li>
+          </ul>
+        </div>
+        <div class="mt-6 pt-4 border-t border-slate-100">
+          <a href="compliance.html" class="text-xs font-bold text-rose-600 hover:text-rose-700">Explore Compliance &rarr;</a>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- PACKAGING COMPARISON TABLE -->
+  <section class="py-16 bg-white border-t border-slate-200">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="text-center max-w-2xl mx-auto mb-10">
+        <span class="text-cyan-600 font-bold text-xs uppercase tracking-widest">CONTAINER SPECIFICATIONS</span>
+        <h2 class="text-2xl sm:text-3xl font-black text-slate-900 mt-1">Industrial Packaging Options</h2>
+        <p class="text-xs sm:text-sm text-slate-600 mt-1">Engineered to preserve chemical stability and meet UN transportation codes.</p>
+      </div>
+
+      <div class="overflow-x-auto">
+        <table class="w-full text-left text-xs bg-slate-50 rounded-2xl overflow-hidden border border-slate-200">
+          <thead class="bg-slate-900 text-white uppercase text-[11px] tracking-wider">
+            <tr>
+              <th class="p-4">Format</th>
+              <th class="p-4">Capacity</th>
+              <th class="p-4">Material Specification</th>
+              <th class="p-4">Best For</th>
+              <th class="p-4">UN Certified</th>
+            </tr>
+          </thead>
+          <tbody class="divide-y divide-slate-200 text-slate-700">
+            <tr>
+              <td class="p-4 font-bold text-slate-900">200L Steel Drum</td>
+              <td class="p-4 font-mono">200 - 216 Liters</td>
+              <td class="p-4">Epoxy-phenolic lined cold-rolled carbon steel</td>
+              <td class="p-4">Flammable solvents, high-grade aromatics</td>
+              <td class="p-4 text-emerald-600 font-bold"><i class="fa-solid fa-check mr-1"></i> UN 1A1</td>
+            </tr>
+            <tr>
+              <td class="p-4 font-bold text-slate-900">200L HDPE Poly Drum</td>
+              <td class="p-4 font-mono">200 - 220 Liters</td>
+              <td class="p-4">High-density polyethylene, UV stabilized</td>
+              <td class="p-4">Corrosive acids, liquid alkalis, oxidizers</td>
+              <td class="p-4 text-emerald-600 font-bold"><i class="fa-solid fa-check mr-1"></i> UN 1H1</td>
+            </tr>
+            <tr>
+              <td class="p-4 font-bold text-slate-900">1,000L Composite IBC</td>
+              <td class="p-4 font-mono">1,000 Liters (275 Gal)</td>
+              <td class="p-4">Blow-molded HDPE in tubular galvanized steel cage</td>
+              <td class="p-4">Medium-to-large bulk liquids with bottom tap</td>
+              <td class="p-4 text-emerald-600 font-bold"><i class="fa-solid fa-check mr-1"></i> UN 31HA1</td>
+            </tr>
+            <tr>
+              <td class="p-4 font-bold text-slate-900">25kg Multi-Wall Bags</td>
+              <td class="p-4 font-mono">25 kg / 55 lbs</td>
+              <td class="p-4">3-ply bleached Kraft paper with polyethylene liner</td>
+              <td class="p-4">Caustic soda pearls, citric acid, titanium dioxide</td>
+              <td class="p-4 text-emerald-600 font-bold"><i class="fa-solid fa-check mr-1"></i> UN 5M2</td>
+            </tr>
+            <tr>
+              <td class="p-4 font-bold text-slate-900">Bulk ISO Tank Container</td>
+              <td class="p-4 font-mono">20,000 - 26,000 Liters</td>
+              <td class="p-4">316L Stainless Steel, insulated &amp; steam heated</td>
+              <td class="p-4">Global intermodal volume raw material shipments</td>
+              <td class="p-4 text-emerald-600 font-bold"><i class="fa-solid fa-check mr-1"></i> IMDG T11/T14</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section class="py-12 bg-slate-900 text-white text-center">
+    <div class="max-w-4xl mx-auto px-4">
+      <h3 class="text-2xl font-black mb-3">Discuss a Tailored Supply Contract</h3>
+      <p class="text-xs text-slate-400 mb-6">Our logistics engineers will configure custom blending, delivery frequency, and reserve buffering for your plants.</p>
+      <a href="contact.html#rfq-form" class="px-8 py-3 bg-cyan-600 hover:bg-cyan-500 text-white font-bold text-xs rounded-xl shadow transition">
+        Contact Commercial Logistics Team &rarr;
+      </a>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="bg-chem-navy text-slate-400 text-xs py-8 border-t border-slate-800 mt-auto">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col sm:flex-row items-center justify-between gap-4">
+      <img src="assets/logo-white.svg" alt="ChemHive Logo" class="h-8 w-auto">
+      <p>&copy; 2026 ChemHive Global Chemical Supply Co. All rights reserved.</p>
+    </div>
+  </footer>
+
+  <!-- Scripts -->
+  <script src="js/products-data.js"></script>
+  <script src="js/rfq-cart.js"></script>
+  <script src="js/main.js"></script>
+</body>
+</html>

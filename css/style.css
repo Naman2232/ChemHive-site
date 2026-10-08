@@ -1,0 +1,123 @@
+/* ==========================================================================
+   ChemHive - Global Chemical Supply Stylesheet
+   ========================================================================== */
+
+@import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800;900&family=JetBrains+Mono:wght@400;500;600;700&display=swap');
+
+:root {
+  --primary-navy: #0f172a;
+  --secondary-slate: #1e293b;
+  --chem-cyan: #0284c7;
+  --chem-emerald: #10b981;
+  --chem-amber: #f59e0b;
+}
+
+body {
+  font-family: 'Plus Jakarta Sans', system-ui, -apple-system, sans-serif;
+  color: #1e293b;
+  background-color: #f8fafc;
+  -webkit-font-smoothing: antialiased;
+}
+
+code, pre, .font-mono {
+  font-family: 'JetBrains Mono', monospace;
+}
+
+/* Chemical Hexagonal Lattice Background Pattern */
+.bg-hex-grid {
+  background-color: #0b1120;
+  background-image: 
+    radial-gradient(circle at 50% 50%, rgba(14, 165, 233, 0.08) 0%, transparent 60%),
+    linear-gradient(rgba(255, 255, 255, 0.04) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255, 255, 255, 0.04) 1px, transparent 1px);
+  background-size: 100% 100%, 36px 36px, 36px 36px;
+}
+
+.bg-light-grid {
+  background-color: #f8fafc;
+  background-image: 
+    radial-gradient(#e2e8f0 1.2px, transparent 1.2px),
+    radial-gradient(#e2e8f0 1.2px, #f8fafc 1.2px);
+  background-size: 24px 24px;
+  background-position: 0 0, 12px 12px;
+}
+
+/* Hazmat Hazard Warning Pattern */
+.hazmat-stripe {
+  background: repeating-linear-gradient(
+    45deg,
+    #fef3c7,
+    #fef3c7 10px,
+    #fde68a 10px,
+    #fde68a 20px
+  );
+}
+
+/* Custom Scrollbars */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+::-webkit-scrollbar-track {
+  background: #f1f5f9;
+}
+::-webkit-scrollbar-thumb {
+  background: #cbd5e1;
+  border-radius: 4px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #94a3b8;
+}
+
+/* Hexagon Card Shapes */
+.hexagon-badge {
+  clip-path: polygon(50% 0%, 100% 25%, 100% 75%, 50% 100%, 0% 75%, 0% 25%);
+}
+
+/* Smooth Transitions */
+.transition-smooth {
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* Glassmorphism */
+.glass-panel {
+  background: rgba(255, 255, 255, 0.85);
+  backdrop-filter: blur(12px);
+  border: 1px solid rgba(255, 255, 255, 0.4);
+}
+
+.glass-dark {
+  background: rgba(15, 23, 42, 0.85);
+  backdrop-filter: blur(12px);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+/* Pulsing Indicator */
+.pulse-emerald {
+  box-shadow: 0 0 0 0 rgba(16, 185, 129, 0.7);
+  animation: pulse-emerald 2s infinite cubic-bezier(0.66, 0, 0, 1);
+}
+@keyframes pulse-emerald {
+  to {
+    box-shadow: 0 0 0 10px rgba(16, 185, 129, 0);
+  }
+}
+
+/* Print Styles for SDS */
+@media print {
+  body * {
+    visibility: hidden;
+  }
+  #sds-preview-modal, #sds-preview-modal * {
+    visibility: visible;
+  }
+  #sds-preview-modal {
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    margin: 0;
+    padding: 0;
+    background: white;
+  }
+}
